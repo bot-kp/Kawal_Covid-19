@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".About"
+    android:orientation="vertical"
+    >
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="About"
+        android:textStyle="bold"
+        android:textSize="24dp"
+        android:background="#4CAF50"
+        android:textColor="#FFFFFF"
+        android:gravity="fill"
+        android:padding="10dp"
+        /><!--Header-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="APLIKASI PUSAT INFORMASI COVID-19 KULON PROGO"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp"
+                android:textSize="20dp"
+                android:textAlignment="center"
+                />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="20dp"
+                android:padding="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/team"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Aplikasi ini di buat untuk memberikan informasi pada masyarakat khususnya masyarakat Kulon Progo mengenai COVID-19. Apabila terdapat kekurangan dalam pembuatan aplikasi ini kami selaku tim developer mengucapkan mohon maaf dikarenakan aplikasi ini masih dalam tahap pengembangan. Semoga aplikasi ini dapat bermanfaat bagi banyak orang."
+                android:fontFamily="@font/barlowcondensed"
+                android:textSize="14dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:padding="10dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="-Terima Kasih-"
+                android:textAlignment="center"
+                android:fontFamily="@font/barlowcondensed"
+                android:textSize="14dp"
+                android:layout_marginTop="10dp"
+                />
+            <Button
+                android:id="@+id/bttn_email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="#FFFFFF"
+                android:onClick="onButtonTap"
+                android:text="Hubungi Kami"
+                android:backgroundTint="#D44638"
+                android:textStyle="bold"
+                android:layout_marginTop="10dp"
+                >
+            </Button>
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

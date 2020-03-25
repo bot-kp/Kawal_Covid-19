@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailNews"
+    android:orientation="vertical">
+    <TextView
+        android:id="@+id/title_news"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:textSize="18dp"
+        android:text="Judul Berita"
+        android:textAlignment="center"
+        android:fontFamily="@font/barlowcondensedmedium"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        android:layout_margin="5dp"
+        />
+
+    <ImageView
+        android:id="@+id/image_news"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_margin="5dp"
+        android:background="@drawable/data_border_radius" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="5dp"
+        >
+        <ImageView
+            android:id="@+id/news_logo"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="5dp"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="5dp">
+        <TextView
+            android:id="@+id/instansi_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sumber Berita"
+            android:fontFamily="@font/barlowcondensedthin"
+            android:textSize="10dp"
+            />
+            <TextView
+                android:id="@+id/news_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Rilis Berita"
+                android:fontFamily="@font/barlowcondensedthin"
+                android:textSize="10dp"
+                />
+        </LinearLayout>
+    </LinearLayout>
+    <TextView
+        android:id="@+id/detail_news"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Detail Berita"
+        android:textSize="12dp"
+        android:layout_margin="5dp"
+        android:textColor="#000000"
+        android:fontFamily="@font/barlowcondensed"
+        />
+</LinearLayout>
