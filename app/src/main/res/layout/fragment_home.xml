@@ -510,7 +510,7 @@
                                     android:id="@+id/ic_menu_6"
                                     android:layout_width="24dp"
                                     android:layout_height="24dp"
-                                    android:src="@drawable/target"
+                                    android:src="@drawable/citzen"
                                     android:layout_margin="5dp"/>
 
                                 <TextView
@@ -1284,7 +1284,7 @@
                                 android:text="0"
                                 android:textSize="16dp"
                                 android:fontFamily="@font/barlowcondensedmedium"
-                                android:textColor="@color/colorPrimaryDark"
+                                android:textColor="#2196F3"
                                 android:gravity="center"
                                 android:textStyle="bold"
                                 />
@@ -1358,7 +1358,7 @@
                                 android:text="0"
                                 android:textSize="16dp"
                                 android:fontFamily="@font/barlowcondensedmedium"
-                                android:textColor="@color/colorPrimaryDark"
+                                android:textColor="#2196F3"
                                 android:gravity="center"
                                 android:textStyle="bold"
                                 />
@@ -1432,7 +1432,7 @@
                                 android:text="0"
                                 android:textSize="16dp"
                                 android:fontFamily="@font/barlowcondensedmedium"
-                                android:textColor="@color/colorPrimaryDark"
+                                android:textColor="#2196F3"
                                 android:gravity="center"
                                 android:textStyle="bold"
                                 />
@@ -1507,7 +1507,7 @@
                                 android:text="0"
                                 android:textSize="16dp"
                                 android:fontFamily="@font/barlowcondensedmedium"
-                                android:textColor="@color/colorPrimaryDark"
+                                android:textColor="#2196F3"
                                 android:gravity="center"
                                 android:textStyle="bold"
                                 />

@@ -12,19 +12,19 @@
         android:title="News"
         android:id="@+id/nav_news"
         app:showAsAction="ifRoom"
-        android:icon="@drawable/news"
+        android:icon="@drawable/ic_news"
         />
     <item
         android:title="QnA"
         android:id="@+id/nav_QnA"
         app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_qna"
+        android:icon="@drawable/ic_faq"
         />
     <item
         android:title="About"
         android:id="@+id/nav_about"
         app:showAsAction="ifRoom"
-        android:icon="@drawable/ic_info"
+        android:icon="@drawable/about_us"
         />
 
 </menu>
