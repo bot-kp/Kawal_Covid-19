@@ -42,7 +42,7 @@ public class Home_Fragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        int images[] = {R.drawable.flipper_main, R.drawable.flipper_content_1, R.drawable.flipper_content_2,R.drawable.flipper_content_3};
+        int images[] = {R.drawable.flipper_main, R.drawable.flipper_content_1, R.drawable.flipper_content_2,R.drawable.flipper_content_3,R.drawable.flipper_content_4};
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         imageFlip = view.findViewById(R.id.flippImage);
         for (int image : images){
