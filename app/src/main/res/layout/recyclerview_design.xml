@@ -8,8 +8,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="3"
-        android:background="#EFEFEF"
         android:layout_marginTop="5dp"
+        android:background="#234CAF50"
         >
         <ImageView
             android:id="@+id/image_news"
@@ -25,6 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
                 android:text="Judul Berita"
+                android:padding="8dp"
                 android:fontFamily="@font/barlowcondensedmedium"
                 android:textSize="16dp"
                 android:textColor="#000000"

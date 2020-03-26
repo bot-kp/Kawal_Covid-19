@@ -13,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 /**
@@ -30,7 +29,7 @@ public class QnA extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_qna, container, false);
+        View view = inflater.inflate(R.layout.fragment_faq, container, false);
         faqList.addAll(ExpandableData.getExpandableModels());
         RecyclerView recyclerView = view.findViewById(R.id.faq_recyclerView);
         ExpandableAdapter hereosAdapter = new ExpandableAdapter(getContext(), ExpandableData.getExpandableModels());

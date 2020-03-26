@@ -24,19 +24,20 @@
             android:orientation="vertical"
             android:background="#FFFFFF"
             >
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="260dp"
-                    app:cardCornerRadius="8dp"
-                    android:layout_margin="8dp"
-                    >
-                    <ViewFlipper
-                        android:id="@+id/flippImage"
-                        android:layout_width="match_parent"
-                        android:layout_height="260dp"
-                        android:background="@drawable/border_radius"
-                        />
-                </androidx.cardview.widget.CardView>
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="260dp"
+                android:paddingStart="50dp"
+                android:paddingEnd="50dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:background="@drawable/custom_slider_background"
+
+                >
+
+            </androidx.viewpager2.widget.ViewPager2>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -55,7 +56,7 @@
                         android:text="Informasi Terkini COVID-19 di Kulon Progo"
                         android:textStyle="bold"
                         android:textColor="#000000"
-                        android:textSize="14dp"
+                        android:textSize="16dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="10dp"
@@ -64,8 +65,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Update : "
-                        android:textSize="10dp"
-                        android:layout_marginTop="1dp"
+                        android:textSize="12dp"
                         android:textColor="@color/colorPrimaryDark"
                         android:layout_marginBottom="10dp"
                         />
@@ -75,8 +75,7 @@
                         android:layout_height="wrap_content"
                         android:textColor="@color/colorPrimaryDark"
                         android:text="8 Oktober 2020 14.59"
-                        android:textSize="10dp"
-                        android:layout_marginTop="1dp"
+                        android:textSize="12dp"
                         android:layout_marginBottom="10dp"
                         />
                 </GridLayout>
@@ -570,7 +569,7 @@
         android:text="Rincian Persebaran COVID-19 di Kulon Progo"
         android:textStyle="bold"
         android:textColor="#000000"
-        android:textSize="14dp"
+        android:textSize="16dp"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginBottom="5dp"
@@ -591,10 +590,13 @@
             <GridLayout
                 android:id="@+id/gl_rincian"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="70dp"
                 android:layout_weight="4"
                 android:columnCount="4"
                 android:rowCount="1"
+                android:paddingTop="5dp"
+                android:paddingRight="5dp"
+                android:paddingLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginLeft="5dp"
                 >
@@ -912,6 +914,8 @@
                 android:layout_weight="4"
                 android:columnCount="4"
                 android:rowCount="1"
+                android:paddingRight="5dp"
+                android:paddingLeft="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginLeft="5dp"
                 >
@@ -1224,6 +1228,9 @@
                 android:layout_height="60dp"
                 android:layout_weight="4"
                 android:columnCount="4"
+                android:paddingRight="5dp"
+                android:paddingLeft="5dp"
+                android:paddingBottom="5dp"
                 android:rowCount="1"
                 android:layout_marginRight="5dp"
                 android:layout_marginLeft="5dp"
@@ -1534,7 +1541,7 @@
                 android:text="Peta Persebaran COVID-19"
                 android:textStyle="bold"
                 android:textColor="#000000"
-                android:textSize="14dp"
+                android:textSize="16dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="10dp"
@@ -1646,10 +1653,10 @@
                     android:layout_height="400dp"
                     android:backgroundTint="#ECECEC"
                     android:background="@drawable/border_radius"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="10dp"
                     android:layout_marginRight="5dp"
                     android:layout_marginLeft="5dp"
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginBottom="10dp"
                     />
             </LinearLayout>
 
@@ -1659,161 +1666,181 @@
                 android:text="Rumah Sakit Rujukan COVID-19 di Kulon Progo"
                 android:textStyle="bold"
                 android:textColor="#000000"
-                android:textSize="14dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="20dp"
+                android:textSize="16dp"
+                android:layout_margin="10dp"
                 />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
+                android:orientation="vertical"
+                android:background="#234CAF50"
                 >
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:padding="10dp"
-                    android:src="@drawable/ic_hospital"
-                    android:layout_margin="5dp"
-                    />
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
+                    android:orientation="horizontal"
+                    android:padding="5dp"
                     >
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="RSUD Wates"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:textSize="14dp"
-                        android:textStyle="bold"
-                        android:textColor="#000000"
-                        />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Jl. Tentara Pelajar KM. 1 No. 5, Area Sawah, Beji, Wates, Kabupaten Kulon Progo 55651"
-                        android:textSize="10dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:textColor="#000000"
-                        />
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:gravity="center"
-                        android:layout_marginTop="10dp"
+                        android:background="#FFFFFF"
                         >
-                        <Button
-                            android:id="@+id/mapsRSUDWates"
-                            android:layout_width="100dp"
-                            android:layout_height="30dp"
-                            android:padding="8dp"
-                            android:gravity="center"
-                            android:text="Kunjungi"
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_hospital"
+                        android:layout_margin="5dp"
+                        />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        >
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="RSUD Wates"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:textSize="16dp"
                             android:textStyle="bold"
-                            android:textSize="12dp"
-                            android:background="@drawable/border_radius"
-                            android:backgroundTint="@color/colorPrimaryDark"
-                            tools:ignore="OnClick" />
-                        <Button
-                            android:id="@+id/callRSUDWates"
-                            android:layout_width="100dp"
-                            android:layout_height="30dp"
-                            android:padding="8dp"
+                            android:textColor="#000000"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Jl. Tentara Pelajar KM. 1 No. 5, Area Sawah, Beji, Wates, Kabupaten Kulon Progo 55651"
+                            android:textSize="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:textColor="#000000"
+                            />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
                             android:gravity="center"
-                            android:layout_marginLeft="10dp"
-                            android:text="Telephone"
-                            android:textSize="12dp"
-                            android:textStyle="bold"
-                            android:background="@drawable/border_radius"
-                            android:backgroundTint="#FFCB30"
-                            tools:ignore="OnClick" />
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            >
+                            <Button
+                                android:id="@+id/mapsRSUDWates"
+                                android:layout_width="100dp"
+                                android:layout_height="30dp"
+                                android:padding="8dp"
+                                android:gravity="center"
+                                android:text="Kunjungi"
+                                android:textStyle="bold"
+                                android:textSize="12dp"
+                                android:background="@drawable/border_radius"
+                                android:backgroundTint="@color/colorPrimaryDark"
+                                tools:ignore="OnClick" />
+                            <Button
+                                android:id="@+id/callRSUDWates"
+                                android:layout_width="100dp"
+                                android:layout_height="30dp"
+                                android:padding="8dp"
+                                android:gravity="center"
+                                android:layout_marginLeft="10dp"
+                                android:text="Telephone"
+                                android:textSize="12dp"
+                                android:textStyle="bold"
+                                android:background="@drawable/border_radius"
+                                android:backgroundTint="#FFCB30"
+                                tools:ignore="OnClick" />
 
+                        </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
-
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_marginTop="10dp"
+                android:padding="5dp"
                 >
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:layout_margin="5dp"
-                    android:padding="10dp"
-                    android:src="@drawable/ic_hospital"
-                    />
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
+                    android:orientation="horizontal"
+                    android:background="#FFFFFF"
                     >
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="RSUD Nyi Ageng Serang"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:textSize="14dp"
-                        android:textStyle="bold"
-                        android:textColor="#000000"
-                        />
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Jl. Bantar Kulon, Banguncipto, Sentolo, Kabupaten Kulon Progo 55664"
-                        android:textSize="10dp"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:fontFamily="@font/barlowcondensedmedium"
-                        android:textColor="#000000"
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_margin="5dp"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_hospital"
                         />
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:gravity="center"
-                        android:layout_marginTop="10dp"
+                        android:orientation="vertical"
                         >
-                        <Button
-                            android:id="@+id/mapsRSUDNyiAgengSerang"
-                            android:layout_width="100dp"
-                            android:layout_height="30dp"
-                            android:padding="8dp"
-                            android:text="Kunjungi"
-                            android:gravity="center"
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="RSUD Nyi Ageng Serang"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:textSize="16dp"
                             android:textStyle="bold"
-                            android:textSize="12dp"
-                            android:background="@drawable/border_radius"
-                            android:backgroundTint="@color/colorPrimaryDark"
-                            tools:ignore="OnClick" />
-                        <Button
-                            android:id="@+id/callRSUDNyiAgengSerang"
-                            android:layout_width="100dp"
-                            android:layout_height="30dp"
-                            android:padding="8dp"
-                            android:layout_marginLeft="10dp"
+                            android:textColor="#000000"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Jl. Bantar Kulon, Banguncipto, Sentolo, Kabupaten Kulon Progo 55664"
+                            android:textSize="10dp"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            android:fontFamily="@font/barlowcondensedmedium"
+                            android:textColor="#000000"
+                            />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
                             android:gravity="center"
-                            android:text="Telephone"
-                            android:textStyle="bold"
-                            android:textSize="12dp"
-                            android:background="@drawable/border_radius"
-                            android:backgroundTint="#FFCB30"
-                            tools:ignore="OnClick" />
+                            android:layout_marginTop="10dp"
+                            android:layout_marginBottom="10dp"
+                            >
+                            <Button
+                                android:id="@+id/mapsRSUDNyiAgengSerang"
+                                android:layout_width="100dp"
+                                android:layout_height="30dp"
+                                android:padding="8dp"
+                                android:text="Kunjungi"
+                                android:gravity="center"
+                                android:textStyle="bold"
+                                android:textSize="12dp"
+                                android:background="@drawable/border_radius"
+                                android:backgroundTint="@color/colorPrimaryDark"
+                                tools:ignore="OnClick" />
+                            <Button
+                                android:id="@+id/callRSUDNyiAgengSerang"
+                                android:layout_width="100dp"
+                                android:layout_height="30dp"
+                                android:padding="8dp"
+                                android:layout_marginLeft="10dp"
+                                android:gravity="center"
+                                android:text="Telephone"
+                                android:textStyle="bold"
+                                android:textSize="12dp"
+                                android:background="@drawable/border_radius"
+                                android:backgroundTint="#FFCB30"
+                                tools:ignore="OnClick" />
 
+                        </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
-
+            </LinearLayout>
             </LinearLayout>
             <TextView
                 android:layout_width="match_parent"
@@ -1822,7 +1849,7 @@
                 android:fontFamily="@font/barlowcondensedmedium"
                 android:textColor="#000000"
                 android:text="Versi 1.0.0 Beta"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginRight="5dp"
                 android:layout_marginLeft="5dp"
                 android:gravity="center"

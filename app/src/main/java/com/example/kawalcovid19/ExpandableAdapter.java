@@ -11,7 +11,6 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class ExpandableAdapter extends RecyclerView.Adapter <ExpandableAdapter.ViewHolder> {
     RecyclerView recyclerView;
@@ -51,7 +50,7 @@ public class ExpandableAdapter extends RecyclerView.Adapter <ExpandableAdapter.V
     @NonNull
     @Override
     public ExpandableAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View itemRow = LayoutInflater.from(parent.getContext()).inflate(R.layout.qna_design, parent, false);
+        View itemRow = LayoutInflater.from(parent.getContext()).inflate(R.layout.faq_design, parent, false);
         return new ViewHolder(itemRow);
     }
 
