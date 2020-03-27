@@ -1,4 +1,4 @@
-package com.example.kawalcovid19;
+package com.example.kawalcovid19.model.statistics;
 
 public class ExpandableModel {
     private String title;

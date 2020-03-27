@@ -1,4 +1,4 @@
-package com.example.kawalcovid19;
+package com.example.kawalcovid19.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,6 +9,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.kawalcovid19.model.statistics.ExpandableModel;
+import com.example.kawalcovid19.R;
 
 import java.util.ArrayList;
 

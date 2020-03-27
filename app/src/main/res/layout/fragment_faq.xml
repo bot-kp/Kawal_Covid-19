@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
-    tools:context=".QnA">
+    tools:context=".FaQ">
 
     <TextView
         android:id="@+id/header"
@@ -19,7 +19,7 @@
         android:textSize="24dp"
         android:textStyle="bold" /><!--Header-->
     <TextView
-        android:id="@+id/label_pertanyaan"
+        android:id="@+id/question_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/header"
@@ -29,86 +29,56 @@
         android:textColor="#000000"
         android:textSize="16dp"
         android:textStyle="bold" />
-
-    <RelativeLayout
-        android:id="@+id/rv_layout"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/label_pertanyaan">
-
-        <RelativeLayout
+        android:layout_below="@id/question_label"
+        >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_above="@+id/button_whatsapp_label"
+            android:layout_below="@+id/question_label"
+            android:id="@+id/faq_recyclerview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@id/whatsapp_layout">
-
-            <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp">
-
-                <androidx.recyclerview.widget.RecyclerView
-
-                    android:id="@+id/faq_recyclerView"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/whatsapp_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp">
-
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior"
+            />
             <GridLayout
-                android:id="@+id/info_whatsapp"
+                android:id="@+id/button_whatsapp_label"
+                android:layout_above="@+id/button_whatsapp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
                 android:columnCount="2">
-
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginTop="10dp"
-                    android:fontFamily="@font/barlowcondensedmedium"
                     android:text="*"
                     android:textColor="#E60909"
                     android:textSize="10dp" />
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginTop="10dp"
-                    android:fontFamily="@font/barlowcondensedmedium"
                     android:text=" Jika ada pertanyaan yang belum terjawab, Anda dapat menghubungi Pusat Informasi COVID-19 Kemkominfo RI"
                     android:textSize="10dp" />
             </GridLayout>
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/info_whatsapp"
-                android:backgroundTint="#03A64C"
-                android:onClick="onWhatsAppButtonTap"
-                android:text="Whatsapp"
-                android:textColor="#FFFFFF"
-                android:textStyle="bold"
-                tools:ignore="OnClick"></Button>
-        </RelativeLayout>
-
-    </RelativeLayout>
-
+                <Button
+                    android:id="@+id/button_whatsapp"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#03A64C"
+                    android:text="TANGGAP CORONA KULON PROGO"
+                    android:textColor="#FFFFFF"
+                    android:textStyle="bold"
+                    />
+    </LinearLayout>
+    </ScrollView>
 </RelativeLayout>

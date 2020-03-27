@@ -76,6 +76,106 @@
                         android:textSize="12dp" />
                 </GridLayout>
             </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
+                android:orientation="vertical">
+
+                <GridLayout
+                    android:id="@+id/gl_map"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="2"
+                    android:columnCount="2"
+                    android:rowCount="1"
+                    android:background="#234CAF50"
+                    >
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:background="@drawable/data_border_radius"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/ic_map_kp"
+                                    android:layout_width="100dp"
+                                    android:layout_height="60dp"
+                                    android:src="@drawable/logo_kulon_progo" />
+
+                                <TextView
+                                    android:id="@+id/tv_map_kp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="5dp"
+                                    android:text="Kulon Progo"
+                                    android:textSize="15dp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:layout_rowWeight="1"
+                        android:layout_columnWeight="1">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="5dp"
+                            android:layout_marginRight="20dp"
+                            android:background="@drawable/data_border_radius"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:id="@+id/ic_map_indonesia"
+                                    android:layout_width="100dp"
+                                    android:layout_height="60dp"
+                                    android:src="@drawable/map_indonesia" />
+
+                                <TextView
+                                    android:id="@+id/tv_map_indonesia"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="5dp"
+                                    android:text="Indonesia"
+                                    android:textSize="15dp"
+                                    android:textStyle="bold" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </GridLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -86,11 +186,10 @@
                 <GridLayout
                     android:id="@+id/gl_menu_1"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp"
+                    android:layout_height="90dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="5dp"
-                    android:layout_weight="3"
                     android:columnCount="3"
                     android:rowCount="1">
 
@@ -315,16 +414,14 @@
                 <GridLayout
                     android:id="@+id/gl_menu_2"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp"
+                    android:layout_height="90dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
-                    android:layout_weight="2"
-                    android:columnCount="2"
-                    android:rowCount="1">
+                    >
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="0dp"
-                        android:layout_height="0dp"
+                        android:layout_height="match_parent"
                         android:layout_rowWeight="1"
                         android:layout_columnWeight="1">
 
@@ -397,7 +494,7 @@
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="0dp"
-                        android:layout_height="0dp"
+                        android:layout_height="match_parent"
                         android:layout_rowWeight="1"
                         android:layout_columnWeight="1">
 
@@ -473,7 +570,7 @@
                 <GridLayout
                     android:id="@+id/gl_menu_3"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp"
+                    android:layout_height="100dp"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
                     android:layout_weight="1"
@@ -482,10 +579,9 @@
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="0dp"
-                        android:layout_height="0dp"
+                        android:layout_height="match_parent"
                         android:layout_rowWeight="1"
-                        android:layout_columnWeight="1"
-                        android:layout_marginBottom="10dp">
+                        android:layout_columnWeight="1">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -587,7 +683,6 @@
                 android:id="@+id/subdistrict_grid_recycler"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
-
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
 
 
@@ -1559,107 +1654,6 @@
                 android:textColor="#000000"
                 android:textSize="16dp"
                 android:textStyle="bold" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:background="#234CAF50"
-                android:orientation="vertical">
-
-                <GridLayout
-                    android:id="@+id/gl_map"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_weight="2"
-                    android:columnCount="2"
-                    android:rowCount="1"
-
-                    >
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_rowWeight="1"
-                        android:layout_columnWeight="1">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="5dp"
-                            android:background="@drawable/data_border_radius"
-                            android:orientation="vertical">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp"
-                                android:gravity="center"
-                                android:orientation="vertical">
-
-                                <ImageView
-                                    android:id="@+id/ic_map_kp"
-                                    android:layout_width="100dp"
-                                    android:layout_height="60dp"
-                                    android:src="@drawable/logo_kulon_progo" />
-
-                                <TextView
-                                    android:id="@+id/tv_map_kp"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginBottom="5dp"
-                                    android:text="Kulon Progo"
-                                    android:textSize="15dp"
-                                    android:textStyle="bold" />
-                            </LinearLayout>
-
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
-
-
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:layout_rowWeight="1"
-                        android:layout_columnWeight="1">
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="5dp"
-                            android:background="@drawable/data_border_radius"
-                            android:orientation="vertical">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp"
-                                android:gravity="center"
-                                android:orientation="vertical">
-
-                                <ImageView
-                                    android:id="@+id/ic_map_indonesia"
-                                    android:layout_width="100dp"
-                                    android:layout_height="60dp"
-                                    android:src="@drawable/map_indonesia" />
-
-                                <TextView
-                                    android:id="@+id/tv_map_indonesia"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginBottom="5dp"
-                                    android:text="Indonesia"
-                                    android:textSize="15dp"
-                                    android:textStyle="bold" />
-                            </LinearLayout>
-
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
-
-                </GridLayout>
 
                 <View
                     android:layout_width="match_parent"

@@ -24,8 +24,10 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.example.kawalcovid19.adapter.SliderAdapter;
 import com.example.kawalcovid19.adapter.StatisticDetailAdaptor;
 import com.example.kawalcovid19.model.statistics.GetStatistics;
+import com.example.kawalcovid19.model.statistics.SliderModel;
 import com.example.kawalcovid19.model.statistics.Statistics;
 import com.example.kawalcovid19.model.statistics.Subdistric;
 import com.example.kawalcovid19.rest.ApiClient;

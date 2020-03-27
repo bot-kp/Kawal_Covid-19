@@ -52,7 +52,7 @@
                 android:fontFamily="@font/barlowcondensed"
                 android:justificationMode="inter_word"
                 android:padding="10dp"
-                android:text="Aplikasi ini di buat untuk memberikan informasi khususnya masyarakat Kulon Progo mengenai persebaran COVID-19 di Kabupaten Kulon Progo. Apabila terdapat kekurangan dan bug-bug dalam aplikasi ini kami selaku tim developer mengucapkan mohon maaf dikarenakan aplikasi ini dalam tahap pengembangan. Jika terdapat kritik dan saran Anda dapat menghubungi kami melalui email dibawah ini. Semoga aplikasi dapat bermanfaat bagi banyak orang khususnya masyarakat Kulon Progo."
+                android:text="Aplikasi ini di buat untuk memberikan informasi khususnya masyarakat Kulon Progo mengenai persebaran COVID-19 di Kabupaten Kulon Progo. Apabila terdapat kekurangan dan bug-bug dalam aplikasi ini kami selaku tim developer mengucapkan mohon maaf dikarenakan aplikasi ini dalam tahap pengembangan. Semoga aplikasi dapat bermanfaat bagi banyak orang khususnya masyarakat Kulon Progo."
                 android:textSize="14dp" />
 
             <TextView
@@ -63,19 +63,39 @@
                 android:text="-Terima Kasih-"
                 android:textAlignment="center"
                 android:textSize="14dp" />
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="20dp"
+                android:columnCount="2">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:text="*"
+                    android:textColor="#E60909"
+                    android:textSize="10dp" />
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:text=" Kritik dan Saran untuk Pengembangan Aplikasi"
+                    android:textSize="10dp" />
+            </GridLayout>
             <Button
-                android:id="@+id/bttn_email"
+                android:id="@+id/button_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
                 android:backgroundTint="#D44638"
-                android:onClick="onButtonTap"
                 android:text="Hubungi Kami"
                 android:textColor="#FFFFFF"
-                android:textStyle="bold"></Button>
+                android:textStyle="bold"
+                />
         </LinearLayout>
     </ScrollView>
 
