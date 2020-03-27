@@ -1,7 +1,8 @@
 package com.example.kawalcovid19.model.statistics;
 
-import java.util.List;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
 
 public class Statistics {
     @SerializedName("monitoring")
@@ -17,8 +18,10 @@ public class Statistics {
     @SerializedName("villagerTotal")
     private String villagerTotal;
 
-    public Statistics(){}
-    public Statistics(Monitoring monitoring, Supervision supervision, Positive positive, List<Subdistric> subdistrics, String updatedAt, String villagerTotal){
+    public Statistics() {
+    }
+
+    public Statistics(Monitoring monitoring, Supervision supervision, Positive positive, List<Subdistric> subdistrics, String updatedAt, String villagerTotal) {
         this.monitoring = monitoring;
         this.supervision = supervision;
         this.positive = positive;

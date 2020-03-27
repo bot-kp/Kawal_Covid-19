@@ -4,15 +4,12 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.load.engine.Resource;
 import com.example.kawalcovid19.R;
 import com.example.kawalcovid19.model.statistics.Subdistric;
 
@@ -24,21 +21,9 @@ public class StatisticDetailAdaptor {
         private List<List<Subdistric>> subdistrics;
         private RecyclerView.Adapter mAdapter;
 
-        public ParentGrid(android.content.Context context, List<List<Subdistric>> subdistrics){
+        public ParentGrid(android.content.Context context, List<List<Subdistric>> subdistrics) {
             this.context = context;
             this.subdistrics = subdistrics;
-        }
-
-        class ParentGridViewHolder extends RecyclerView.ViewHolder {
-            public final View view;
-            RecyclerView statisticDetailChildGrid;
-
-            public ParentGridViewHolder(@NonNull View itemView) {
-                super(itemView);
-                view = itemView;
-
-                statisticDetailChildGrid = view.findViewById(R.id.subdistrict_child_grid_recycler);
-            }
         }
 
         @NonNull
@@ -60,36 +45,27 @@ public class StatisticDetailAdaptor {
         public int getItemCount() {
             return subdistrics.size();
         }
+
+        class ParentGridViewHolder extends RecyclerView.ViewHolder {
+            public final View view;
+            RecyclerView statisticDetailChildGrid;
+
+            public ParentGridViewHolder(@NonNull View itemView) {
+                super(itemView);
+                view = itemView;
+
+                statisticDetailChildGrid = view.findViewById(R.id.subdistrict_child_grid_recycler);
+            }
+        }
     }
 
     public static class DetailComponent extends RecyclerView.Adapter<DetailComponent.DetailComponentViewHolder> {
         private Context context;
         private List<Subdistric> subdistrics;
 
-        public DetailComponent(Context context, List<Subdistric> subdistrics){
+        public DetailComponent(Context context, List<Subdistric> subdistrics) {
             this.context = context;
             this.subdistrics = subdistrics;
-        }
-
-        class DetailComponentViewHolder extends RecyclerView.ViewHolder {
-            public final View view;
-            CardView statisticDetailCard;
-            TextView subdistrictNameText;
-            TextView subdistrictPositiveTotalText;
-            TextView subdistrictRecoveredTotalText;
-            TextView subdistrictDeadTotalText;
-
-
-            public DetailComponentViewHolder(@NonNull View itemView) {
-                super(itemView);
-                view = itemView;
-
-                statisticDetailCard = view.findViewById(R.id.statistic_detail_card);
-                subdistrictNameText = view.findViewById(R.id.subdistric_name);
-                subdistrictPositiveTotalText = view.findViewById(R.id.subdistric_positive_total);
-                subdistrictRecoveredTotalText = view.findViewById(R.id.subdistric_recovered_total);
-                subdistrictDeadTotalText = view.findViewById(R.id.subdistric_dead_total);
-            }
         }
 
         @NonNull
@@ -114,6 +90,27 @@ public class StatisticDetailAdaptor {
         @Override
         public int getItemCount() {
             return subdistrics.size();
+        }
+
+        class DetailComponentViewHolder extends RecyclerView.ViewHolder {
+            public final View view;
+            CardView statisticDetailCard;
+            TextView subdistrictNameText;
+            TextView subdistrictPositiveTotalText;
+            TextView subdistrictRecoveredTotalText;
+            TextView subdistrictDeadTotalText;
+
+
+            public DetailComponentViewHolder(@NonNull View itemView) {
+                super(itemView);
+                view = itemView;
+
+                statisticDetailCard = view.findViewById(R.id.statistic_detail_card);
+                subdistrictNameText = view.findViewById(R.id.subdistric_name);
+                subdistrictPositiveTotalText = view.findViewById(R.id.subdistric_positive_total);
+                subdistrictRecoveredTotalText = view.findViewById(R.id.subdistric_recovered_total);
+                subdistrictDeadTotalText = view.findViewById(R.id.subdistric_dead_total);
+            }
         }
     }
 }

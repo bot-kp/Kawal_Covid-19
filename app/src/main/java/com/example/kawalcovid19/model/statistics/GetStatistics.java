@@ -21,11 +21,11 @@ public class GetStatistics {
     @SerializedName("data")
     ResultStructure data;
 
-    public Statistics getStatistics(){
+    public Statistics getStatistics() {
         return data.getResult();
     }
 
-    public void setStatistics(Statistics dataStatistics){
+    public void setStatistics(Statistics dataStatistics) {
         data.setResult(dataStatistics);
     }
 

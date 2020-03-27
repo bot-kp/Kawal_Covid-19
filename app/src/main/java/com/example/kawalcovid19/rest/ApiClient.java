@@ -9,12 +9,12 @@ public class ApiClient {
 
     public static Retrofit getClient() {
 
-            if (retrofit == null) {
-                retrofit = new Retrofit.Builder()
-                        .baseUrl(BASE_API_URL)
-                        .addConverterFactory(GsonConverterFactory.create())
-                        .build();
-            }
+        if (retrofit == null) {
+            retrofit = new Retrofit.Builder()
+                    .baseUrl(BASE_API_URL)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+        }
 
         return retrofit;
     }
