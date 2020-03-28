@@ -21,7 +21,7 @@
                 android:id="@+id/ex_title"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:background="#234CAF50"
+                android:background="@drawable/faq_background"
                 android:padding="16dp"
                 android:text="FaQ Title"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"

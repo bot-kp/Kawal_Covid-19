@@ -1,5 +1,7 @@
 package com.example.kawalcovid19;
 
+import com.example.kawalcovid19.model.statistics.NewsModel;
+
 import java.util.ArrayList;
 
 public class NewsData {
@@ -76,7 +78,7 @@ public class NewsData {
     private static int[] affairsLogo = {
             R.drawable.positif,
             R.drawable.about_us,
-            R.drawable.shield
+            R.drawable.ic_shield
     };
     private static int[] newsTumbnail = {
             R.drawable.flipper_main,

@@ -1,4 +1,4 @@
-package com.example.kawalcovid19;
+package com.example.kawalcovid19.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -13,6 +13,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.example.kawalcovid19.DetailNews;
+import com.example.kawalcovid19.model.statistics.NewsModel;
+import com.example.kawalcovid19.R;
 
 import java.util.ArrayList;
 

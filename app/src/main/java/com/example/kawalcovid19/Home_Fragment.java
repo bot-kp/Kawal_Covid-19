@@ -18,6 +18,7 @@ import android.widget.ViewFlipper;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -44,7 +45,7 @@ import retrofit2.Response;
  * A simple {@link Fragment} subclass.
  */
 public class Home_Fragment extends Fragment {
-    private static final int CALL_PERMISSION_REQUEST_CODE = +62;
+    private static final int CALL_PERMISSION_REQUEST_CODE = 123;
     ViewFlipper imageFlip;
     Statistics statistics;
     List<List<Subdistric>> subdistricList = new ArrayList<>();
@@ -69,9 +70,10 @@ public class Home_Fragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         viewPager2 = view.findViewById(R.id.viewPager);
 
+
         final List<SliderModel> sliderModels = new ArrayList<>();
-        sliderModels.add(new SliderModel(R.drawable.flipper_content_1));
         sliderModels.add(new SliderModel(R.drawable.flipper_main));
+        sliderModels.add(new SliderModel(R.drawable.flipper_content_1));
         sliderModels.add(new SliderModel(R.drawable.flipper_content_2));
         sliderModels.add(new SliderModel(R.drawable.flipper_content_3));
         sliderModels.add(new SliderModel(R.drawable.flipper_content_4));
@@ -88,7 +90,7 @@ public class Home_Fragment extends Fragment {
                 int pageHeight = viewPager2.getHeight();
                 int paddingLeft = viewPager2.getPaddingLeft();
                 float transformPos = (float) (page.getLeft() - (viewPager2.getScrollX() + paddingLeft)) / pageWidth;
-                final float normalizedposition = Math.abs(Math.abs(transformPos) - 1);
+                final float normalizedposition = Math.abs(1-Math.abs(transformPos));
                 page.setAlpha(normalizedposition + 0.5f);
 
                 int max = -pageHeight / 10;
@@ -130,6 +132,71 @@ public class Home_Fragment extends Fragment {
         Button btnRSUDNyiAgengSerang = (Button) view.findViewById(R.id.callRSUDNyiAgengSerang);
         Button btnMapRSUDWates = (Button) view.findViewById(R.id.mapsRSUDWates);
         Button btnMapRSUDNyiAgengSerang = (Button) view.findViewById(R.id.mapsRSUDNyiAgengSerang);
+        final CardView btnStatisticKulonProgo = (CardView) view.findViewById(R.id.btn_statistic_KP);
+        final CardView btnStatisticIndonesai = (CardView) view.findViewById(R.id.btn_statistic_indonesia);
+        final CardView btnRecovered = (CardView) view.findViewById(R.id.recovered);
+        final CardView btnPositive = (CardView) view.findViewById(R.id.positive);
+        final CardView btnDead = (CardView) view.findViewById(R.id.dead);
+        final CardView btnODP = (CardView) view.findViewById(R.id.odp);
+        final CardView btnPDP = (CardView) view.findViewById(R.id.pdp);
+        final CardView btnVillagers = (CardView) view.findViewById(R.id.villagers);
+        final TextView statistic_label = (TextView) view.findViewById(R.id.statistic_label);
+        btnPositive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(),"Jumlah Pasien Positif Adalah " + statistics.getPositive().getTotal()+ " Jiwa", Toast.LENGTH_SHORT).show();
+            }
+        });
+        btnRecovered.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(),"Jumlah Pasien Sembuh Adalah " + statistics.getPositive().getRecovered()+ " Jiwa", Toast.LENGTH_SHORT).show();
+            }
+        });
+        btnDead.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(),"Jumlah Pasien Meninggal Adalah " + statistics.getPositive().getDead()+ " Jiwa", Toast.LENGTH_SHORT).show();
+            }
+        });
+        btnODP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(),"Jumlah Orang Dalam Pengawasan Adalah " + statistics.getMonitoring().getTotal()+ " Jiwa", Toast.LENGTH_SHORT).show();
+            }
+        });
+        btnPDP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(),"Jumlah Orang Dalam Pemantauan Adalah " + statistics.getSupervision().getTotal()+ " Jiwa", Toast.LENGTH_SHORT).show();
+            }
+        });
+        btnVillagers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(),"Jumlah Penduduk Adalah "+ statistics.getVillagerTotal() + " Jiwa", Toast.LENGTH_SHORT).show();
+            }
+        });
+        statistic_label.setText("di Kulon Progo");
+        btnStatisticKulonProgo.setBackgroundResource(R.drawable.hover_statistic_change);
+        btnStatisticKulonProgo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                statistic_label.setText("di Kulon Progo");
+                btnStatisticIndonesai.setBackgroundResource(R.drawable.hover_unactive);
+                btnStatisticKulonProgo.setBackgroundResource(R.drawable.hover_statistic_change);
+                loadStatisticData();
+            }
+        });
+        btnStatisticIndonesai.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                statistic_label.setText("di Indonesia");
+                btnStatisticIndonesai.setBackgroundResource(R.drawable.hover_statistic_change2);
+                btnStatisticKulonProgo.setBackgroundResource(R.drawable.hover_unactive);
+                loadStatisticIndonesia();
+            }
+        });
         btnRSUDWates.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -162,7 +229,6 @@ public class Home_Fragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_home);
-
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
         loadStatisticData();
     }
@@ -189,15 +255,31 @@ public class Home_Fragment extends Fragment {
             }
         });
     }
+    private void loadStatisticIndonesia(){
+        Call<GetStatistics> getStatisticsCall = apiInterface.getStatistics();
+        getStatisticsCall.enqueue(new Callback<GetStatistics>() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
+            @Override
+            public void onResponse(Call<GetStatistics> call, Response<GetStatistics> response) {
+                statistics = response.body().getStatistics();
+                changeStatisticData();
+            }
+
+            @Override
+            public void onFailure(Call<GetStatistics> call, Throwable t) {
+
+            }
+        });
+    }
 
     private void changeStatisticData() {
-        TextView statisticsUpdatedAtText = getActivity().findViewById(R.id.tanggal_rilis_statistic);
-        TextView positiveCount = getActivity().findViewById(R.id.positif_count);
-        TextView recoveredCount = getActivity().findViewById(R.id.sembuh_count);
-        TextView deadCount = getActivity().findViewById(R.id.meninggal_count);
+        TextView statisticsUpdatedAtText = getActivity().findViewById(R.id.statistic_update_date);
+        TextView positiveCount = getActivity().findViewById(R.id.positive_count);
+        TextView recoveredCount = getActivity().findViewById(R.id.recovered_count);
+        TextView deadCount = getActivity().findViewById(R.id.dead_count);
         TextView odpTotalText = getActivity().findViewById(R.id.odp_count);
         TextView pdpTotalText = getActivity().findViewById(R.id.pdp_count);
-        TextView totalVillagerText = getActivity().findViewById(R.id.jumlah_penduduk_count);
+        TextView totalVillagerText = getActivity().findViewById(R.id.villagers_count);
 
         statisticsUpdatedAtText.setText(statistics.getUpdatedAt());
         positiveCount.setText(statistics.getPositive().getTotal());

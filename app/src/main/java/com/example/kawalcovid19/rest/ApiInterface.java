@@ -8,4 +8,6 @@ import retrofit2.http.GET;
 public interface ApiInterface {
     @GET("statistics")
     Call<GetStatistics> getStatistics();
+    @GET("indonesiaStatistic")
+    Call<GetStatistics> getStatistic();
 }

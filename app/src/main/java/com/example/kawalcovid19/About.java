@@ -33,7 +33,7 @@ public class About extends Fragment {
             @Override
             public void onClick(View v) {
                 Log.i("Send email", "");
-                Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto: caturrahmat.ctrmt@gmail.com?subject=Kritik dan Saran untuk pengembangan aplikasi Pusat Informasi COVID-19 di Kulon Progo&cc=dhiki@indryanto.dev&body=Terima Kasih atas Saran dan Kritiknya"));
+                Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto: dhiki@indryanto.dev?subject=Kritik dan Saran untuk pengembangan aplikasi Pusat Informasi COVID-19 di Kulon Progo&cc=caturrahmat.ctrmt@gmail.com&body=Terima Kasih atas Saran dan Kritiknya"));
 
                 try {
                     getContext().startActivity(Intent.createChooser(emailIntent, "Send mail..."));

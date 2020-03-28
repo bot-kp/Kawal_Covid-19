@@ -85,6 +85,10 @@ public class StatisticDetailAdaptor {
             holder.subdistrictRecoveredTotalText.setText("0");
             // TODO current data not available
             holder.subdistrictDeadTotalText.setText("0");
+            // TODO current data not available
+            holder.subdistrictODPTotalText.setText("0");
+            // TODO current data not available
+            holder.subdistrictPDPTotalText.setText("0");
         }
 
         @Override
@@ -99,6 +103,8 @@ public class StatisticDetailAdaptor {
             TextView subdistrictPositiveTotalText;
             TextView subdistrictRecoveredTotalText;
             TextView subdistrictDeadTotalText;
+            TextView subdistrictODPTotalText;
+            TextView subdistrictPDPTotalText;
 
 
             public DetailComponentViewHolder(@NonNull View itemView) {
@@ -108,8 +114,10 @@ public class StatisticDetailAdaptor {
                 statisticDetailCard = view.findViewById(R.id.statistic_detail_card);
                 subdistrictNameText = view.findViewById(R.id.subdistric_name);
                 subdistrictPositiveTotalText = view.findViewById(R.id.subdistric_positive_total);
-                subdistrictRecoveredTotalText = view.findViewById(R.id.subdistric_recovered_total);
-                subdistrictDeadTotalText = view.findViewById(R.id.subdistric_dead_total);
+                //subdistrictRecoveredTotalText = view.findViewById(R.id.subdistric_recovered_total);
+                //subdistrictDeadTotalText = view.findViewById(R.id.subdistric_dead_total);
+                subdistrictODPTotalText = view.findViewById(R.id.subdistric_odp_total);
+                subdistrictPDPTotalText = view.findViewById(R.id.subdistric_pdp_total);
             }
         }
     }

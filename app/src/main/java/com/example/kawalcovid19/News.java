@@ -11,6 +11,9 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.kawalcovid19.adapter.NewsAdapter;
+import com.example.kawalcovid19.model.statistics.NewsModel;
+
 import java.util.ArrayList;
 
 
