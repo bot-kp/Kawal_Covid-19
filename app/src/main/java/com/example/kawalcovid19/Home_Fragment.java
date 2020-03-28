@@ -27,8 +27,10 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.kawalcovid19.adapter.SliderAdapter;
 import com.example.kawalcovid19.adapter.StatisticDetailAdaptor;
+import com.example.kawalcovid19.model.SliderModel;
+import com.example.kawalcovid19.model.indonesiaStatistic.IndonesiaGetStatistic;
+import com.example.kawalcovid19.model.indonesiaStatistic.IndonesiaStatistic;
 import com.example.kawalcovid19.model.statistics.GetStatistics;
-import com.example.kawalcovid19.model.statistics.SliderModel;
 import com.example.kawalcovid19.model.statistics.Statistics;
 import com.example.kawalcovid19.model.statistics.Subdistric;
 import com.example.kawalcovid19.rest.ApiClient;
@@ -48,6 +50,7 @@ public class Home_Fragment extends Fragment {
     private static final int CALL_PERMISSION_REQUEST_CODE = 123;
     ViewFlipper imageFlip;
     Statistics statistics;
+    IndonesiaStatistic indonesiaStatistic;
     List<List<Subdistric>> subdistricList = new ArrayList<>();
     ApiInterface apiInterface;
     private ViewPager2 viewPager2;
@@ -70,13 +73,12 @@ public class Home_Fragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         viewPager2 = view.findViewById(R.id.viewPager);
 
-
         final List<SliderModel> sliderModels = new ArrayList<>();
-        sliderModels.add(new SliderModel(R.drawable.flipper_main));
-        sliderModels.add(new SliderModel(R.drawable.flipper_content_1));
-        sliderModels.add(new SliderModel(R.drawable.flipper_content_2));
-        sliderModels.add(new SliderModel(R.drawable.flipper_content_3));
-        sliderModels.add(new SliderModel(R.drawable.flipper_content_4));
+//        sliderModels.add(new SliderModel(R.drawable.flipper_main));
+//        sliderModels.add(new SliderModel(R.drawable.flipper_content_1));
+//        sliderModels.add(new SliderModel(R.drawable.flipper_content_2));
+//        sliderModels.add(new SliderModel(R.drawable.flipper_content_3));
+//        sliderModels.add(new SliderModel(R.drawable.flipper_content_4));
         viewPager2.setAdapter(new SliderAdapter(sliderModels, viewPager2));
         viewPager2.setClipToPadding(false);
         viewPager2.setClipChildren(false);
@@ -90,7 +92,7 @@ public class Home_Fragment extends Fragment {
                 int pageHeight = viewPager2.getHeight();
                 int paddingLeft = viewPager2.getPaddingLeft();
                 float transformPos = (float) (page.getLeft() - (viewPager2.getScrollX() + paddingLeft)) / pageWidth;
-                final float normalizedposition = Math.abs(1-Math.abs(transformPos));
+                final float normalizedposition = Math.abs(1 - Math.abs(transformPos));
                 page.setAlpha(normalizedposition + 0.5f);
 
                 int max = -pageHeight / 10;
@@ -144,37 +146,37 @@ public class Home_Fragment extends Fragment {
         btnPositive.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(),"Jumlah Pasien Positif Adalah " + statistics.getPositive().getTotal()+ " Jiwa", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Jumlah Pasien Positif Adalah " + statistics.getPositive().getTotal() + " Jiwa", Toast.LENGTH_SHORT).show();
             }
         });
         btnRecovered.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(),"Jumlah Pasien Sembuh Adalah " + statistics.getPositive().getRecovered()+ " Jiwa", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Jumlah Pasien Sembuh Adalah " + statistics.getPositive().getRecovered() + " Jiwa", Toast.LENGTH_SHORT).show();
             }
         });
         btnDead.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(),"Jumlah Pasien Meninggal Adalah " + statistics.getPositive().getDead()+ " Jiwa", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Jumlah Pasien Meninggal Adalah " + statistics.getPositive().getDead() + " Jiwa", Toast.LENGTH_SHORT).show();
             }
         });
         btnODP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(),"Jumlah Orang Dalam Pengawasan Adalah " + statistics.getMonitoring().getTotal()+ " Jiwa", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Jumlah Orang Dalam Pengawasan Adalah " + statistics.getMonitoring().getTotal() + " Jiwa", Toast.LENGTH_SHORT).show();
             }
         });
         btnPDP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(),"Jumlah Orang Dalam Pemantauan Adalah " + statistics.getSupervision().getTotal()+ " Jiwa", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Jumlah Orang Dalam Pemantauan Adalah " + statistics.getSupervision().getTotal() + " Jiwa", Toast.LENGTH_SHORT).show();
             }
         });
         btnVillagers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(),"Jumlah Penduduk Adalah "+ statistics.getVillagerTotal() + " Jiwa", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Jumlah Penduduk Adalah " + statistics.getVillagerTotal() + " Jiwa", Toast.LENGTH_SHORT).show();
             }
         });
         statistic_label.setText("di Kulon Progo");
@@ -239,14 +241,23 @@ public class Home_Fragment extends Fragment {
             @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onResponse(Call<GetStatistics> call, Response<GetStatistics> response) {
-                statistics = response.body().getStatistics();
-                for (int i = 1; i <= statistics.getSubdistrics().size(); i++) {
-                    if (i % 4 == 0) {
-                        subdistricList.add(statistics.getSubdistrics().subList(i - 4, i));
+                if (response.code() == 200) {
+                    if (response.body().getSuccess() == true) {
+                        statistics = response.body().getResult();
+
+                        for (int i = 1; i <= statistics.getSubdistrics().size(); i++) {
+                            if (i % 4 == 0) {
+                                subdistricList.add(statistics.getSubdistrics().subList(i - 4, i));
+                            }
+                        }
+                        changeStatisticData();
+                        changeDetailStatisticData();
+                    } else {
+                        Toast.makeText(getContext(), "Failed to get data from server.", Toast.LENGTH_LONG).show();
                     }
+                } else {
+                    Toast.makeText(getContext(), "Failed to get data from server.", Toast.LENGTH_LONG).show();
                 }
-                changeStatisticData();
-                changeDetailStatisticData();
             }
 
             @Override
@@ -255,19 +266,27 @@ public class Home_Fragment extends Fragment {
             }
         });
     }
-    private void loadStatisticIndonesia(){
-        Call<GetStatistics> getStatisticsCall = apiInterface.getStatistics();
-        getStatisticsCall.enqueue(new Callback<GetStatistics>() {
-            @RequiresApi(api = Build.VERSION_CODES.N)
+
+    private void loadStatisticIndonesia() {
+        Call<IndonesiaGetStatistic> getStatisticsCall = apiInterface.getIndonesiaStatistic();
+        getStatisticsCall.enqueue(new Callback<IndonesiaGetStatistic>() {
             @Override
-            public void onResponse(Call<GetStatistics> call, Response<GetStatistics> response) {
-                statistics = response.body().getStatistics();
-                changeStatisticData();
+            public void onResponse(Call<IndonesiaGetStatistic> call, Response<IndonesiaGetStatistic> response) {
+                if (response.code() == 200) {
+                    if (response.body().getSuccess() == true) {
+                        indonesiaStatistic = response.body().getResult();
+                        changeIndonesiaStatisticData();
+                    } else {
+                        Toast.makeText(getContext(), "Failed to get data from server.", Toast.LENGTH_LONG).show();
+                    }
+                } else {
+                    Toast.makeText(getContext(), "Failed to get data from server.", Toast.LENGTH_LONG).show();
+                }
             }
 
             @Override
-            public void onFailure(Call<GetStatistics> call, Throwable t) {
-
+            public void onFailure(Call<IndonesiaGetStatistic> call, Throwable t) {
+                Toast.makeText(getContext(), "Failed to get data from server.", Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -277,6 +296,9 @@ public class Home_Fragment extends Fragment {
         TextView positiveCount = getActivity().findViewById(R.id.positive_count);
         TextView recoveredCount = getActivity().findViewById(R.id.recovered_count);
         TextView deadCount = getActivity().findViewById(R.id.dead_count);
+        CardView odpTotalCard = getActivity().findViewById(R.id.odp);
+        CardView pdpTotalCard = getActivity().findViewById(R.id.pdp);
+        CardView totalVillagerCard = getActivity().findViewById(R.id.villagers);
         TextView odpTotalText = getActivity().findViewById(R.id.odp_count);
         TextView pdpTotalText = getActivity().findViewById(R.id.pdp_count);
         TextView totalVillagerText = getActivity().findViewById(R.id.villagers_count);
@@ -285,9 +307,36 @@ public class Home_Fragment extends Fragment {
         positiveCount.setText(statistics.getPositive().getTotal());
         recoveredCount.setText(statistics.getPositive().getRecovered());
         deadCount.setText(statistics.getPositive().getDead());
+        odpTotalCard.setVisibility(View.VISIBLE);
+        pdpTotalCard.setVisibility(View.VISIBLE);
+        totalVillagerCard.setVisibility(View.VISIBLE);
         odpTotalText.setText(statistics.getMonitoring().getTotal());
         pdpTotalText.setText(statistics.getSupervision().getTotal());
         totalVillagerText.setText(statistics.getVillagerTotal());
+    }
+
+    private void changeIndonesiaStatisticData() {
+        TextView statisticsUpdatedAtText = getActivity().findViewById(R.id.statistic_update_date);
+        TextView positiveCount = getActivity().findViewById(R.id.positive_count);
+        TextView recoveredCount = getActivity().findViewById(R.id.recovered_count);
+        TextView deadCount = getActivity().findViewById(R.id.dead_count);
+        CardView odpTotalCard = getActivity().findViewById(R.id.odp);
+        CardView pdpTotalCard = getActivity().findViewById(R.id.pdp);
+        CardView totalVillagerCard = getActivity().findViewById(R.id.villagers);
+//        TextView odpTotalText = getActivity().findViewById(R.id.odp_count);
+//        TextView pdpTotalText = getActivity().findViewById(R.id.pdp_count);
+//        TextView totalVillagerText = getActivity().findViewById(R.id.villagers_count);
+
+        statisticsUpdatedAtText.setText(indonesiaStatistic.getUpdatedAt());
+        positiveCount.setText(indonesiaStatistic.getStatistic().getActive().toString());
+        recoveredCount.setText(indonesiaStatistic.getStatistic().getRecovered().toString());
+        deadCount.setText(indonesiaStatistic.getStatistic().getDeaths().toString());
+        odpTotalCard.setVisibility(View.GONE);
+        pdpTotalCard.setVisibility(View.GONE);
+        totalVillagerCard.setVisibility(View.GONE);
+//        odpTotalText.setText(statistics.getMonitoring().getTotal());
+//        pdpTotalText.setText(statistics.getSupervision().getTotal());
+//        totalVillagerText.setText(statistics.getVillagerTotal());
     }
 
     private void changeDetailStatisticData() {

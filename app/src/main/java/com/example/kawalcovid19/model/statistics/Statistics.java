@@ -2,9 +2,11 @@ package com.example.kawalcovid19.model.statistics;
 
 import com.google.gson.annotations.SerializedName;
 
+import com.example.kawalcovid19.model.Base.StatisticBase;
+
 import java.util.List;
 
-public class Statistics {
+public class Statistics extends StatisticBase {
     @SerializedName("monitoring")
     private Monitoring monitoring;
     @SerializedName("supervision")
@@ -13,8 +15,6 @@ public class Statistics {
     private Positive positive;
     @SerializedName("subdistrics")
     private List<Subdistric> subdistrics;
-    @SerializedName("updatedAt")
-    private String updatedAt;
     @SerializedName("villagerTotal")
     private String villagerTotal;
 
@@ -26,8 +26,8 @@ public class Statistics {
         this.supervision = supervision;
         this.positive = positive;
         this.subdistrics = subdistrics;
-        this.updatedAt = updatedAt;
         this.villagerTotal = villagerTotal;
+        this.setUpdatedAt(updatedAt);
     }
 
     public Monitoring getMonitoring() {
@@ -60,14 +60,6 @@ public class Statistics {
 
     public void setSubdistrics(List<Subdistric> subdistrics) {
         this.subdistrics = subdistrics;
-    }
-
-    public String getUpdatedAt() {
-        return updatedAt;
-    }
-
-    public void setUpdatedAt(String updatedAt) {
-        this.updatedAt = updatedAt;
     }
 
     public String getVillagerTotal() {

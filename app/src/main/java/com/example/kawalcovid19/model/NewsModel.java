@@ -1,4 +1,4 @@
-package com.example.kawalcovid19.model.statistics;
+package com.example.kawalcovid19.model;
 
 public class NewsModel {
 private int newsTumbnail;

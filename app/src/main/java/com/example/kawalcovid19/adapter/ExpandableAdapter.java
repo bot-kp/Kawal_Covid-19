@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.kawalcovid19.model.statistics.ExpandableModel;
+import com.example.kawalcovid19.model.ExpandableModel;
 import com.example.kawalcovid19.R;
 
 import java.util.ArrayList;

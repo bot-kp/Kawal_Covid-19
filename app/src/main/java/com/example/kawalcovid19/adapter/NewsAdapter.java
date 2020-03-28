@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.kawalcovid19.DetailNews;
-import com.example.kawalcovid19.model.statistics.NewsModel;
+import com.example.kawalcovid19.model.NewsModel;
 import com.example.kawalcovid19.R;
 
 import java.util.ArrayList;

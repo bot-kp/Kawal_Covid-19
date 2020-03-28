@@ -855,15 +855,15 @@
                     />
             </LinearLayout>
 
-                <WebView
-                    android:layout_width="match_parent"
-                    android:layout_height="500dp"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/border_radius"
-                    />
+<!--                <WebView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="500dp"-->
+<!--                    android:layout_marginLeft="5dp"-->
+<!--                    android:layout_marginTop="10dp"-->
+<!--                    android:layout_marginRight="5dp"-->
+<!--                    android:layout_marginBottom="10dp"-->
+<!--                    android:background="@drawable/border_radius"-->
+<!--                    />-->
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
