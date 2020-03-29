@@ -24,6 +24,7 @@ public class StatisticData {
     @SerializedName("deathsPerOneMillion")
     private Float deathsPerOneMillion;
 
+
     public StatisticData(){}
 
     public StatisticData(String country, int cases, int todayCases, int deaths, int todayDeaths, int recovered, int active, int critical, float casesPerOneMillion, float deathsPerOneMillion){
@@ -37,6 +38,7 @@ public class StatisticData {
         this.critical = critical;
         this.casesPerOneMillion = casesPerOneMillion;
         this.deathsPerOneMillion = deathsPerOneMillion;
+
     }
 
     public void setCountry(String country) {
@@ -118,4 +120,6 @@ public class StatisticData {
     public void setDeathsPerOneMillion(Float deathsPerOneMillion) {
         this.deathsPerOneMillion = deathsPerOneMillion;
     }
+
+
 }

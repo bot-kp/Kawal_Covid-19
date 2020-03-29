@@ -6,12 +6,17 @@ import com.google.gson.annotations.SerializedName;
 public class IndonesiaStatistic extends StatisticBase {
     @SerializedName("statistic")
     StatisticData statistic;
+    @SerializedName("villagerTotal")
+    private String villagerTotal;
 
     public IndonesiaStatistic(){}
 
-    public IndonesiaStatistic(StatisticData statistic, String updatedAt){
+    public IndonesiaStatistic(StatisticData statistic, String updatedAt, String maps, String villagersTotal){
+
         this.statistic = statistic;
         this.setUpdatedAt(updatedAt);
+        this.setMaps(maps);
+        this.villagerTotal = villagersTotal;
     }
 
     public StatisticData getStatistic() {
@@ -20,5 +25,12 @@ public class IndonesiaStatistic extends StatisticBase {
 
     public void setStatistic(StatisticData statistic) {
         this.statistic = statistic;
+    }
+    public String getTotalVillagers() {
+        return villagerTotal;
+    }
+
+    public void setTotalVillagers(String totalVillagers) {
+        this.villagerTotal = totalVillagers;
     }
 }

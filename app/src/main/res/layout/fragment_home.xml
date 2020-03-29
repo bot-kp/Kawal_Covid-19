@@ -1,1082 +1,1101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment_home"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".Home_Fragment">
-
-    <ImageView
-        android:id="@+id/header"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="#4CAF50"
-        android:src="@drawable/logo_kulon_progo" /><!--Header-->
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <ImageView
+            android:id="@+id/header"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#FFFFFF"
-            android:orientation="vertical">
-
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/viewPager"
-                android:layout_width="match_parent"
-                android:layout_height="260dp"
-                android:background="@drawable/custom_slider_background"
-                android:paddingStart="50dp"
-                android:paddingTop="10dp"
-                android:paddingEnd="50dp"
-                android:paddingBottom="10dp"
-
-                ></androidx.viewpager2.widget.ViewPager2>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:layout_marginTop="5dp"
-                >
-
-                <GridLayout
-                    android:id="@+id/gl_map"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:columnOrderPreserved="false"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:columnCount="2"
-                    android:backgroundTint="#FFFFFF"
-                    >
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/btn_statistic_KP"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_rowWeight="1"
-                        android:layout_columnWeight="1"
-                        android:paddingLeft="10dp"
-                        android:paddingTop="10dp"
-                        android:paddingBottom="10dp"
-                        >
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="5dp"
-                            android:background="@drawable/data_border_radius"
-                            android:focusableInTouchMode="true"
-                            android:orientation="vertical">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp"
-                                android:layout_marginTop="5dp"
-                                android:layout_marginBottom="5dp"
-                                android:gravity="center"
-                                android:orientation="vertical">
-
-                                <ImageView
-                                    android:layout_width="100dp"
-                                    android:layout_height="40dp"
-                                    android:src="@drawable/logo_kulon_progo" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="KULON PROGO"
-                                    android:textColor="@color/colorPrimaryDark"
-                                    android:textSize="12dp"
-                                    android:textStyle="bold" />
-                            </LinearLayout>
-
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
-
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/btn_statistic_indonesia"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_rowWeight="1"
-                        android:layout_columnWeight="1"
-                        android:paddingRight="10dp"
-                        android:paddingTop="10dp"
-                        android:paddingBottom="10dp"
-                        >
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="5dp"
-                            android:background="@drawable/data_border_radius"
-                            android:focusableInTouchMode="true"
-                            android:orientation="vertical">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp"
-                                android:layout_marginTop="5dp"
-                                android:layout_marginBottom="5dp"
-                                android:gravity="center"
-                                android:orientation="vertical">
-
-                                <ImageView
-                                    android:id="@+id/ic_map_indonesia"
-                                    android:layout_width="100dp"
-                                    android:layout_height="40dp"
-                                    android:src="@drawable/map_indonesia" />
-
-                                <TextView
-                                    android:id="@+id/tv_map_indonesia"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="INDONESIA"
-                                    android:textColor="@color/colorPrimaryDark"
-                                    android:textSize="12dp"
-                                    android:textStyle="bold" />
-                            </LinearLayout>
-
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
-
-                </GridLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="8dp"
-                    android:background="@drawable/custom_title_background"
-                    android:layout_marginBottom="5dp"
-                    >
-
-                    <GridLayout
-                        android:padding="5dp"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="4"
-                        android:columnCount="4"
-                        android:rowCount="1">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginBottom="5dp"
-                            android:text="Informasi Terkini COVID-19 "
-                            android:textColor="#000000"
-                            android:textSize="16dp"
-                            android:textStyle="bold"
-                            android:paddingTop="5dp"
-                            android:paddingLeft="5dp"
-                            android:paddingBottom="5dp"
-                            />
-                        <TextView
-                            android:id="@+id/statistic_label"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="5dp"
-                            android:textColor="#000000"
-                            android:textSize="16dp"
-                            android:textStyle="bold"
-                            android:paddingTop="5dp"
-                            android:paddingRight="5dp"
-                            android:paddingBottom="5dp"
-                            />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Update : "
-                            android:textColor="@color/colorPrimaryDark"
-                            android:textSize="12dp"
-                            android:paddingTop="5dp"
-                            android:paddingLeft="5dp"
-                            android:paddingBottom="5dp"
-                            />
-
-                        <TextView
-                            android:id="@+id/statistic_update_date"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="5dp"
-                            android:textColor="@color/colorPrimaryDark"
-                            android:textSize="12dp"
-                            android:paddingTop="5dp"
-                            android:paddingBottom="5dp"
-                            android:paddingRight="5dp"
-                            />
-                    </GridLayout>
-                </LinearLayout>
+            android:layout_height="50dp"
+            android:background="#4CAF50"
+            android:src="@drawable/logo_kulon_progo" /><!--Header-->
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#234CAF50"
-                android:orientation="vertical"
-                >
+                android:background="#FFFFFF"
+                android:orientation="vertical">
 
-                <GridLayout
-                    android:id="@+id/gl_menu_1"
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/viewPager"
                     android:layout_width="match_parent"
-                    android:layout_height="90dp"
-                    android:columnCount="3"
-                    android:rowCount="1"
-                    android:backgroundTint="#FFFFFF"
+                    android:layout_height="260dp"
+                    android:background="@drawable/custom_slider_background"
+                    android:paddingStart="50dp"
+                    android:paddingTop="10dp"
+                    android:paddingEnd="50dp"
+                    android:paddingBottom="10dp"
+
+                    ></androidx.viewpager2.widget.ViewPager2>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginTop="5dp"
                     >
 
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/positive"
-                        android:layout_width="0dp"
+                    <GridLayout
+                        android:id="@+id/gl_map"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_rowWeight="1"
-                        android:layout_columnWeight="1"
-                        app:cardCornerRadius="0dp"
+                        android:columnOrderPreserved="false"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:columnCount="2"
+                        android:backgroundTint="#FFFFFF"
                         >
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="5dp"
-                            android:background="@drawable/data_border_radius"
-                            android:orientation="vertical">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp"
-                                android:orientation="horizontal"
-                                android:layout_marginTop="5dp"
-                                >
-
-                                <ImageView
-                                    android:id="@+id/ic_menu"
-                                    android:layout_width="24dp"
-                                    android:layout_height="24dp"
-                                    android:layout_margin="5dp"
-                                    android:src="@drawable/positif" />
-
-                                <TextView
-                                    android:id="@+id/tv_info_menu"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="5dp"
-                                    android:layout_marginLeft="8dp"
-                                    android:text="Positif"
-                                    android:textSize="15dp"
-                                    android:textStyle="bold" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="10dp"
-                                android:layout_marginLeft="10dp"
-                                android:layout_marginEnd="10dp"
-                                android:layout_marginBottom="10dp"
-                                android:gravity="center"
-                                android:orientation="horizontal">
-
-                                <TextView
-                                    android:id="@+id/positive_count"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/barlowcondensedmedium"
-                                    android:gravity="center"
-                                    android:text="0"
-                                    android:textColor="#F44336"
-                                    android:textSize="24dp"
-                                    android:textStyle="bold" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="5dp"
-                                    android:layout_marginTop="2dp"
-                                    android:gravity="center"
-                                    android:text="Jiwa"
-                                    android:textColor="#000000"
-                                    android:textSize="12dp" />
-
-                            </LinearLayout>
-
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/recovered"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_rowWeight="1"
-                        android:layout_columnWeight="1"
-                        app:cardCornerRadius="0dp"
-                        >
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="5dp"
-                            android:background="@drawable/data_border_radius"
-                            android:orientation="vertical">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp"
-                                android:orientation="horizontal"
-                                android:layout_marginTop="5dp"
-                                >
-
-                                <ImageView
-                                    android:id="@+id/ic_menu_2"
-                                    android:layout_width="24dp"
-                                    android:layout_height="24dp"
-                                    android:layout_margin="5dp"
-                                    android:src="@drawable/ic_shield" />
-
-                                <TextView
-                                    android:id="@+id/tv_info_menu_2"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="5dp"
-                                    android:layout_marginLeft="8dp"
-                                    android:text="Sembuh"
-                                    android:textSize="15dp"
-                                    android:textStyle="bold" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="10dp"
-                                android:layout_marginLeft="10dp"
-                                android:layout_marginEnd="10dp"
-                                android:gravity="center"
-                                android:orientation="horizontal"
-                                android:layout_marginBottom="10dp"
-                                >
-
-                                <TextView
-                                    android:id="@+id/recovered_count"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/barlowcondensedmedium"
-                                    android:gravity="center"
-                                    android:text="0"
-                                    android:textColor="#2196F3"
-                                    android:textSize="24dp"
-                                    android:textStyle="bold" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="5dp"
-                                    android:layout_marginTop="2dp"
-                                    android:gravity="center"
-                                    android:text="Jiwa"
-                                    android:textColor="#000000"
-                                    android:textSize="12dp" />
-
-                            </LinearLayout>
-
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/dead"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_rowWeight="1"
-                        android:layout_columnWeight="1"
-                        app:cardCornerRadius="0dp"
-                        >
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="5dp"
-                            android:background="@drawable/data_border_radius"
-                            android:orientation="vertical">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp"
-                                android:orientation="horizontal"
-                                android:layout_marginTop="5dp"
-                                >
-
-                                <ImageView
-                                    android:id="@+id/ic_menu_3"
-                                    android:layout_width="24dp"
-                                    android:layout_height="24dp"
-                                    android:layout_margin="5dp"
-                                    android:src="@drawable/grave" />
-
-                                <TextView
-                                    android:id="@+id/tv_info_menu_3"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="5dp"
-                                    android:layout_marginLeft="8dp"
-                                    android:text="Meninggaal"
-                                    android:textSize="15dp"
-                                    android:textStyle="bold" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="10dp"
-                                android:layout_marginLeft="10dp"
-                                android:layout_marginEnd="10dp"
-                                android:gravity="center"
-                                android:orientation="horizontal"
-                                android:layout_marginBottom="10dp"
-                                >
-
-                                <TextView
-                                    android:id="@+id/dead_count"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/barlowcondensedmedium"
-                                    android:gravity="center"
-                                    android:text="0"
-                                    android:textColor="#FFC515"
-                                    android:textSize="24dp"
-                                    android:textStyle="bold" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="5dp"
-                                    android:layout_marginTop="2dp"
-                                    android:gravity="center"
-                                    android:text="Jiwa"
-                                    android:textColor="#000000"
-                                    android:textSize="12dp" />
-
-                            </LinearLayout>
-
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
-
-                </GridLayout>
-
-                <GridLayout
-                    android:id="@+id/gl_menu_2"
-                    android:layout_width="match_parent"
-                    android:layout_height="90dp"
-                    android:backgroundTint="#FFFFFF"
-                    >
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/odp"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_rowWeight="1"
-                        android:layout_columnWeight="1"
-                        app:cardCornerRadius="0dp"
-                        >
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginRight="5dp"
-                            android:background="@drawable/data_border_radius"
-                            android:orientation="vertical">
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp"
-                                android:orientation="horizontal"
-                                android:layout_marginTop="5dp"
-                                >
-
-                                <ImageView
-                                    android:id="@+id/ic_menu_4"
-                                    android:layout_width="24dp"
-                                    android:layout_height="24dp"
-                                    android:layout_margin="5dp"
-                                    android:src="@drawable/target" />
-
-                                <TextView
-                                    android:id="@+id/tv_info_menu_4"
-                                    android:layout_width="match_parent"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="5dp"
-                                    android:layout_marginLeft="8dp"
-                                    android:text="Dalam Pengawasan"
-                                    android:textSize="15dp"
-                                    android:textStyle="bold" />
-                            </LinearLayout>
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="10dp"
-                                android:layout_marginLeft="10dp"
-                                android:layout_marginEnd="10dp"
-                                android:gravity="center"
-                                android:orientation="horizontal"
-                                android:layout_marginBottom="10dp"
-                                >
-
-                                <TextView
-                                    android:id="@+id/odp_count"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:fontFamily="@font/barlowcondensedmedium"
-                                    android:gravity="center"
-                                    android:text="0"
-                                    android:textColor="#FF9696"
-                                    android:textSize="24dp"
-                                    android:textStyle="bold" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="5dp"
-                                    android:layout_marginTop="2dp"
-                                    android:gravity="center"
-                                    android:text="Jiwa"
-                                    android:textColor="#000000"
-                                    android:textSize="12dp" />
-
-                            </LinearLayout>
-
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/pdp"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_rowWeight="1"
-                        android:layout_columnWeight="1"
-                        app:cardCornerRadius="0dp"
-                        >
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/data_border_radius"
-                            android:orientation="vertical"
-                            android:layout_marginRight="5dp"
-                            android:layout_marginTop="5dp"
-                            android:layout_marginLeft="5dp"
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/btn_statistic_KP"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_rowWeight="1"
+                            android:layout_columnWeight="1"
+                            android:paddingLeft="10dp"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
                             >
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp"
-                                android:orientation="horizontal"
-                                android:layout_marginTop="5dp"
-                                >
+                                android:layout_margin="5dp"
+                                android:background="@drawable/data_border_radius"
+                                android:focusableInTouchMode="true"
+                                android:orientation="vertical">
 
-                                <ImageView
-                                    android:id="@+id/ic_menu_5"
-                                    android:layout_width="24dp"
-                                    android:layout_height="24dp"
-                                    android:layout_margin="5dp"
-                                    android:src="@drawable/computer" />
-
-                                <TextView
-                                    android:id="@+id/tv_info_menu_5"
+                                <LinearLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_margin="5dp"
-                                    android:layout_marginLeft="8dp"
-                                    android:text="Dalam Pemantauan"
-                                    android:textSize="15dp"
-                                    android:textStyle="bold" />
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginBottom="5dp"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:layout_width="100dp"
+                                        android:layout_height="40dp"
+                                        android:src="@drawable/logo_kulon_progo" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="KULON PROGO"
+                                        android:textColor="@color/colorPrimaryDark"
+                                        android:textSize="12dp"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+
                             </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/btn_statistic_indonesia"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_rowWeight="1"
+                            android:layout_columnWeight="1"
+                            android:paddingRight="10dp"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            >
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="10dp"
-                                android:layout_marginLeft="10dp"
-                                android:layout_marginEnd="10dp"
-                                android:gravity="center"
-                                android:orientation="horizontal"
-                                android:layout_marginBottom="10dp"
-                                >
+                                android:layout_margin="5dp"
+                                android:background="@drawable/data_border_radius"
+                                android:focusableInTouchMode="true"
+                                android:orientation="vertical">
 
-                                <TextView
-                                    android:id="@+id/pdp_count"
-                                    android:layout_width="wrap_content"
+                                <LinearLayout
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:fontFamily="@font/barlowcondensedmedium"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginBottom="5dp"
                                     android:gravity="center"
-                                    android:text="0"
-                                    android:textColor="#8BC34A"
-                                    android:textSize="24dp"
-                                    android:textStyle="bold" />
+                                    android:orientation="vertical">
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginLeft="5dp"
-                                    android:layout_marginTop="2dp"
-                                    android:gravity="center"
-                                    android:text="Jiwa"
-                                    android:textColor="#000000"
-                                    android:textSize="12dp" />
+                                    <ImageView
+                                        android:id="@+id/ic_map_indonesia"
+                                        android:layout_width="100dp"
+                                        android:layout_height="40dp"
+                                        android:src="@drawable/map_indonesia" />
+
+                                    <TextView
+                                        android:id="@+id/tv_map_indonesia"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="INDONESIA"
+                                        android:textColor="@color/colorPrimaryDark"
+                                        android:textSize="12dp"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
 
                             </LinearLayout>
+                        </androidx.cardview.widget.CardView>
 
-                        </LinearLayout>
-                    </androidx.cardview.widget.CardView>
+                    </GridLayout>
 
-                </GridLayout>
-
-                <GridLayout
-                    android:id="@+id/gl_menu_3"
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_weight="1"
-                    android:columnCount="1"
-                    android:rowCount="1"
-                    android:backgroundTint="#FFFFFF"
-                    >
-
-                    <androidx.cardview.widget.CardView
-                        android:id="@+id/villagers"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_rowWeight="1"
-                        android:layout_columnWeight="1"
-                        app:cardCornerRadius="0dp"
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/custom_title_background"
+                        android:layout_marginBottom="5dp"
                         >
+
+                        <GridLayout
+                            android:padding="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+                            android:columnCount="4"
+                            android:rowCount="1">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginBottom="5dp"
+                                android:text="Informasi Terkini COVID-19 "
+                                android:textColor="#000000"
+                                android:textSize="16dp"
+                                android:textStyle="bold"
+                                android:paddingTop="5dp"
+                                android:paddingLeft="5dp"
+                                android:paddingBottom="5dp"
+                                />
+                            <TextView
+                                android:id="@+id/statistic_label"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="5dp"
+                                android:textColor="#000000"
+                                android:textSize="16dp"
+                                android:textStyle="bold"
+                                android:paddingTop="5dp"
+                                android:paddingRight="5dp"
+                                android:paddingBottom="5dp"
+                                />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Update : "
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="12dp"
+                                android:paddingTop="5dp"
+                                android:paddingLeft="5dp"
+                                android:paddingBottom="5dp"
+                                />
+
+                            <TextView
+                                android:id="@+id/statistic_update_date"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginBottom="5dp"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="12dp"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:paddingRight="5dp"
+                                />
+                        </GridLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/statistic_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="#FFFFFF"
+                        android:orientation="vertical"
+                        >
+
+                        <GridLayout
+                            android:id="@+id/gl_menu_1"
+                            android:layout_width="match_parent"
+                            android:layout_height="90dp"
+                            android:columnCount="3"
+                            android:rowCount="1"
+                            android:backgroundTint="#FFFFFF"
+                            >
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/positive"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_rowWeight="1"
+                                android:layout_columnWeight="1"
+                                app:cardCornerRadius="0dp"
+                                >
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:background="@drawable/data_border_radius"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp"
+                                        android:orientation="horizontal"
+                                        android:layout_marginTop="5dp"
+                                        >
+
+                                        <ImageView
+                                            android:id="@+id/ic_menu"
+                                            android:layout_width="24dp"
+                                            android:layout_height="24dp"
+                                            android:layout_margin="5dp"
+                                            android:src="@drawable/positif" />
+
+                                        <TextView
+                                            android:id="@+id/tv_info_menu"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_margin="5dp"
+                                            android:layout_marginLeft="8dp"
+                                            android:text="Positif"
+                                            android:textSize="15dp"
+                                            android:textStyle="bold" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="10dp"
+                                        android:layout_marginLeft="10dp"
+                                        android:layout_marginEnd="10dp"
+                                        android:layout_marginBottom="10dp"
+                                        android:gravity="center"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@+id/positive_count"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/barlowcondensedmedium"
+                                            android:gravity="center"
+                                            android:text="0"
+                                            android:textColor="#F44336"
+                                            android:textSize="24dp"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="5dp"
+                                            android:layout_marginTop="2dp"
+                                            android:gravity="center"
+                                            android:text="Jiwa"
+                                            android:textColor="#000000"
+                                            android:textSize="12dp" />
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/recovered"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_rowWeight="1"
+                                android:layout_columnWeight="1"
+                                app:cardCornerRadius="0dp"
+                                >
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:background="@drawable/data_border_radius"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp"
+                                        android:orientation="horizontal"
+                                        android:layout_marginTop="5dp"
+                                        >
+
+                                        <ImageView
+                                            android:id="@+id/ic_menu_2"
+                                            android:layout_width="24dp"
+                                            android:layout_height="24dp"
+                                            android:layout_margin="5dp"
+                                            android:src="@drawable/ic_shield" />
+
+                                        <TextView
+                                            android:id="@+id/tv_info_menu_2"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_margin="5dp"
+                                            android:layout_marginLeft="8dp"
+                                            android:text="Sembuh"
+                                            android:textSize="15dp"
+                                            android:textStyle="bold" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="10dp"
+                                        android:layout_marginLeft="10dp"
+                                        android:layout_marginEnd="10dp"
+                                        android:gravity="center"
+                                        android:orientation="horizontal"
+                                        android:layout_marginBottom="10dp"
+                                        >
+
+                                        <TextView
+                                            android:id="@+id/recovered_count"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/barlowcondensedmedium"
+                                            android:gravity="center"
+                                            android:text="0"
+                                            android:textColor="#2196F3"
+                                            android:textSize="24dp"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="5dp"
+                                            android:layout_marginTop="2dp"
+                                            android:gravity="center"
+                                            android:text="Jiwa"
+                                            android:textColor="#000000"
+                                            android:textSize="12dp" />
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/dead"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_rowWeight="1"
+                                android:layout_columnWeight="1"
+                                app:cardCornerRadius="0dp"
+                                >
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="5dp"
+                                    android:background="@drawable/data_border_radius"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp"
+                                        android:orientation="horizontal"
+                                        android:layout_marginTop="5dp"
+                                        >
+
+                                        <ImageView
+                                            android:id="@+id/ic_menu_3"
+                                            android:layout_width="24dp"
+                                            android:layout_height="24dp"
+                                            android:layout_margin="5dp"
+                                            android:src="@drawable/grave" />
+
+                                        <TextView
+                                            android:id="@+id/tv_info_menu_3"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_margin="5dp"
+                                            android:layout_marginLeft="8dp"
+                                            android:text="Meninggaal"
+                                            android:textSize="15dp"
+                                            android:textStyle="bold" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="10dp"
+                                        android:layout_marginLeft="10dp"
+                                        android:layout_marginEnd="10dp"
+                                        android:gravity="center"
+                                        android:orientation="horizontal"
+                                        android:layout_marginBottom="10dp"
+                                        >
+
+                                        <TextView
+                                            android:id="@+id/dead_count"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/barlowcondensedmedium"
+                                            android:gravity="center"
+                                            android:text="0"
+                                            android:textColor="#FFC515"
+                                            android:textSize="24dp"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="5dp"
+                                            android:layout_marginTop="2dp"
+                                            android:gravity="center"
+                                            android:text="Jiwa"
+                                            android:textColor="#000000"
+                                            android:textSize="12dp" />
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+                            </androidx.cardview.widget.CardView>
+
+                        </GridLayout>
+
+                        <GridLayout
+                            android:id="@+id/statistic_row_2"
+                            android:layout_width="match_parent"
+                            android:layout_height="90dp"
+                            android:backgroundTint="#FFFFFF"
+                            >
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/odp"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_rowWeight="1"
+                                android:layout_columnWeight="1"
+                                app:cardCornerRadius="0dp"
+                                >
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginRight="5dp"
+                                    android:background="@drawable/data_border_radius"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp"
+                                        android:orientation="horizontal"
+                                        android:layout_marginTop="5dp"
+                                        >
+
+                                        <ImageView
+                                            android:id="@+id/ic_menu_4"
+                                            android:layout_width="24dp"
+                                            android:layout_height="24dp"
+                                            android:layout_margin="5dp"
+                                            android:src="@drawable/target" />
+
+                                        <TextView
+                                            android:id="@+id/tv_info_menu_4"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_margin="5dp"
+                                            android:layout_marginLeft="8dp"
+                                            android:text="Dalam Pengawasan"
+                                            android:textSize="15dp"
+                                            android:textStyle="bold" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="10dp"
+                                        android:layout_marginLeft="10dp"
+                                        android:layout_marginEnd="10dp"
+                                        android:gravity="center"
+                                        android:orientation="horizontal"
+                                        android:layout_marginBottom="10dp"
+                                        >
+
+                                        <TextView
+                                            android:id="@+id/odp_count"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/barlowcondensedmedium"
+                                            android:gravity="center"
+                                            android:text="0"
+                                            android:textColor="#FF9696"
+                                            android:textSize="24dp"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="5dp"
+                                            android:layout_marginTop="2dp"
+                                            android:gravity="center"
+                                            android:text="Jiwa"
+                                            android:textColor="#000000"
+                                            android:textSize="12dp" />
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+                            </androidx.cardview.widget.CardView>
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/pdp"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_rowWeight="1"
+                                android:layout_columnWeight="1"
+                                app:cardCornerRadius="0dp"
+                                >
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/data_border_radius"
+                                    android:orientation="vertical"
+                                    android:layout_marginRight="5dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginLeft="5dp"
+                                    >
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp"
+                                        android:orientation="horizontal"
+                                        android:layout_marginTop="5dp"
+                                        >
+
+                                        <ImageView
+                                            android:id="@+id/ic_menu_5"
+                                            android:layout_width="24dp"
+                                            android:layout_height="24dp"
+                                            android:layout_margin="5dp"
+                                            android:src="@drawable/computer" />
+
+                                        <TextView
+                                            android:id="@+id/tv_info_menu_5"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_margin="5dp"
+                                            android:layout_marginLeft="8dp"
+                                            android:text="Dalam Pemantauan"
+                                            android:textSize="15dp"
+                                            android:textStyle="bold" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="10dp"
+                                        android:layout_marginLeft="10dp"
+                                        android:layout_marginEnd="10dp"
+                                        android:gravity="center"
+                                        android:orientation="horizontal"
+                                        android:layout_marginBottom="10dp"
+                                        >
+
+                                        <TextView
+                                            android:id="@+id/pdp_count"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/barlowcondensedmedium"
+                                            android:gravity="center"
+                                            android:text="0"
+                                            android:textColor="#8BC34A"
+                                            android:textSize="24dp"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="5dp"
+                                            android:layout_marginTop="2dp"
+                                            android:gravity="center"
+                                            android:text="Jiwa"
+                                            android:textColor="#000000"
+                                            android:textSize="12dp" />
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+                            </androidx.cardview.widget.CardView>
+
+                        </GridLayout>
+
+                        <GridLayout
+                            android:id="@+id/gl_menu_3"
+                            android:layout_width="match_parent"
+                            android:layout_height="100dp"
+                            android:layout_weight="1"
+                            android:columnCount="1"
+                            android:rowCount="1"
+                            android:backgroundTint="#FFFFFF"
+                            >
+
+                            <androidx.cardview.widget.CardView
+                                android:id="@+id/villagers"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_rowWeight="1"
+                                android:layout_columnWeight="1"
+                                app:cardCornerRadius="0dp"
+                                >
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="6dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginRight="5dp"
+                                    android:background="@drawable/data_border_radius"
+                                    android:orientation="vertical">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginLeft="10dp"
+                                        android:orientation="horizontal"
+                                        android:layout_marginTop="5dp"
+                                        >
+
+                                        <ImageView
+                                            android:id="@+id/ic_menu_6"
+                                            android:layout_width="24dp"
+                                            android:layout_height="24dp"
+                                            android:layout_margin="5dp"
+                                            android:src="@drawable/citzen" />
+
+                                        <TextView
+                                            android:id="@+id/tv_info_menu_6"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:layout_margin="5dp"
+                                            android:layout_marginLeft="8dp"
+                                            android:text="Jumlah Penduduk"
+                                            android:textSize="15dp"
+                                            android:textStyle="bold" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="10dp"
+                                        android:layout_marginLeft="10dp"
+                                        android:layout_marginEnd="10dp"
+                                        android:gravity="center"
+                                        android:orientation="horizontal"
+                                        android:layout_marginBottom="10dp"
+                                        >
+
+                                        <TextView
+                                            android:id="@+id/villagers_count"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:fontFamily="@font/barlowcondensedmedium"
+                                            android:gravity="center"
+                                            android:text="0"
+                                            android:textColor="#4CAF50"
+                                            android:textSize="24dp"
+                                            android:textStyle="bold" />
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="5dp"
+                                            android:layout_marginTop="2dp"
+                                            android:gravity="center"
+                                            android:text="Jiwa"
+                                            android:textColor="#000000"
+                                            android:textSize="12dp" />
+
+                                    </LinearLayout>
+                                </LinearLayout>
+                            </androidx.cardview.widget.CardView>
+                        </GridLayout>
+                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/statistic_source"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="10dp"
+                        android:textAlignment="textEnd"
+                        />
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:columnCount="2"
+                        android:background="@drawable/custom_title_background"
+                        android:padding="3dp"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:text="Rincian Persebaran COVID-19 di Kulon Progo"
+                            android:textColor="#000000"
+                            android:textSize="16dp"
+                            android:textStyle="bold"
+                            android:padding="5dp"
+                            />
+
+                    </GridLayout>
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:gravity="center"
+                        android:columnCount="3"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="2dp"
+                        >
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_rowWeight="1"
+                            android:layout_columnWeight="1"
+                            android:orientation="horizontal"
+                            android:gravity="center"
+                            >
+                            <View
+                                android:layout_width="12dp"
+                                android:layout_height="12dp"
+                                android:background="#F44336"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Positif"
+                                android:textSize="12dp"
+                                android:paddingBottom="2dp"
+                                android:layout_marginLeft="3dp"
+                                />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_rowWeight="1"
+                            android:layout_columnWeight="1"
+                            android:orientation="horizontal"
+                            android:gravity="center"
+                            >
+                            <View
+                                android:layout_width="12dp"
+                                android:layout_height="12dp"
+                                android:background="#FF9696"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="PDP"
+                                android:textSize="12dp"
+                                android:paddingBottom="2dp"
+                                android:layout_marginLeft="3dp"
+                                />
+                        </LinearLayout>
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_rowWeight="1"
+                            android:layout_columnWeight="1"
+                            android:orientation="horizontal"
+                            android:gravity="center"
+                            >
+                            <View
+                                android:layout_width="12dp"
+                                android:layout_height="12dp"
+                                android:background="#8BC34A"
+                                />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="ODP"
+                                android:textSize="12dp"
+                                android:paddingBottom="2dp"
+                                android:layout_marginLeft="3dp"
+                                />
+                        </LinearLayout>
+
+                    </GridLayout>
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/subdistrict_grid_recycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        android:nestedScrollingEnabled="false"
+                        />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/custom_title_background"
+                        >
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:text="Peta Persebaran COVID-19"
+                            android:textColor="#000000"
+                            android:textSize="16dp"
+                            android:textStyle="bold"
+                            android:padding="5dp"
+                            />
+                    </LinearLayout>
+
+                    <!--                <WebView-->
+                    <!--                    android:layout_width="match_parent"-->
+                    <!--                    android:layout_height="500dp"-->
+                    <!--                    android:layout_marginLeft="5dp"-->
+                    <!--                    android:layout_marginTop="10dp"-->
+                    <!--                    android:layout_marginRight="5dp"-->
+                    <!--                    android:layout_marginBottom="10dp"-->
+                    <!--                    android:background="@drawable/border_radius"-->
+                    <!--                    />-->
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/statistic_source_maps"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="10dp"
+                    android:textAlignment="textEnd"
+                    />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/custom_title_background"
+                    android:layout_marginBottom="5dp"
+                    >
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:text="Rumah Sakit Rujukan COVID-19 di Kulon Progo"
+                        android:textColor="#000000"
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        android:padding="5dp"
+                        android:layout_marginLeft="10dp"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="5dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="6dp"
-                            android:layout_marginLeft="5dp"
-                            android:layout_marginRight="5dp"
+                            android:orientation="horizontal"
                             android:background="@drawable/data_border_radius"
-                            android:orientation="vertical">
+                            >
+                            <ImageView
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_margin="5dp"
+                                android:padding="10dp"
+                                android:src="@drawable/ic_hospital" />
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="10dp"
-                                android:orientation="horizontal"
-                                android:layout_marginTop="5dp"
-                                >
-
-                                <ImageView
-                                    android:id="@+id/ic_menu_6"
-                                    android:layout_width="24dp"
-                                    android:layout_height="24dp"
-                                    android:layout_margin="5dp"
-                                    android:src="@drawable/citzen" />
+                                android:orientation="vertical">
 
                                 <TextView
-                                    android:id="@+id/tv_info_menu_6"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:layout_margin="5dp"
-                                    android:layout_marginLeft="8dp"
-                                    android:text="Jumlah Penduduk"
-                                    android:textSize="15dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginRight="5dp"
+                                    android:text="RSUD Wates"
+                                    android:textColor="#000000"
+                                    android:textSize="16dp"
                                     android:textStyle="bold" />
+
+                                <TextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginRight="5dp"
+                                    android:text="Jl. Tentara Pelajar KM. 1 No. 5, Area Sawah, Beji, Wates, Kabupaten Kulon Progo 55651"
+                                    android:textColor="#000000"
+                                    android:textSize="10dp" />
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:gravity="center"
+                                    android:orientation="horizontal">
+
+                                    <Button
+                                        android:id="@+id/mapsRSUDWates"
+                                        android:layout_width="100dp"
+                                        android:layout_height="30dp"
+                                        android:background="@drawable/border_radius"
+                                        android:backgroundTint="@color/colorPrimaryDark"
+                                        android:gravity="center"
+                                        android:padding="8dp"
+                                        android:text="Kunjungi"
+                                        android:textSize="12dp"
+                                        android:textStyle="bold"
+                                        tools:ignore="OnClick" />
+
+                                    <Button
+                                        android:id="@+id/callRSUDWates"
+                                        android:layout_width="100dp"
+                                        android:layout_height="30dp"
+                                        android:layout_marginLeft="10dp"
+                                        android:background="@drawable/border_radius"
+                                        android:backgroundTint="#FFCB30"
+                                        android:gravity="center"
+                                        android:padding="8dp"
+                                        android:text="Telephone"
+                                        android:textSize="12dp"
+                                        android:textStyle="bold"
+                                        tools:ignore="OnClick" />
+
+                                </LinearLayout>
                             </LinearLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="5dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:background="@drawable/data_border_radius"
+                            >
+
+                            <ImageView
+                                android:layout_width="80dp"
+                                android:layout_height="80dp"
+                                android:layout_margin="5dp"
+                                android:padding="10dp"
+                                android:src="@drawable/ic_hospital" />
 
                             <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="10dp"
-                                android:layout_marginLeft="10dp"
-                                android:layout_marginEnd="10dp"
-                                android:gravity="center"
-                                android:orientation="horizontal"
-                                android:layout_marginBottom="10dp"
-                                >
+                                android:orientation="vertical">
 
                                 <TextView
-                                    android:id="@+id/villagers_count"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:fontFamily="@font/barlowcondensedmedium"
-                                    android:gravity="center"
-                                    android:text="0"
-                                    android:textColor="#4CAF50"
-                                    android:textSize="24dp"
+                                    android:layout_marginLeft="5dp"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginRight="5dp"
+                                    android:text="RSUD Nyi Ageng Serang"
+                                    android:textColor="#000000"
+                                    android:textSize="16dp"
                                     android:textStyle="bold" />
 
                                 <TextView
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="5dp"
-                                    android:layout_marginTop="2dp"
-                                    android:gravity="center"
-                                    android:text="Jiwa"
+                                    android:layout_marginRight="5dp"
+                                    android:fontFamily="@font/barlowcondensedmedium"
+                                    android:text="Jl. Bantar Kulon, Banguncipto, Sentolo, Kabupaten Kulon Progo 55664"
                                     android:textColor="#000000"
-                                    android:textSize="12dp" />
+                                    android:textSize="10dp" />
 
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:gravity="center"
+                                    android:orientation="horizontal">
+
+                                    <Button
+                                        android:id="@+id/mapsRSUDNyiAgengSerang"
+                                        android:layout_width="100dp"
+                                        android:layout_height="30dp"
+                                        android:background="@drawable/border_radius"
+                                        android:backgroundTint="@color/colorPrimaryDark"
+                                        android:gravity="center"
+                                        android:padding="8dp"
+                                        android:text="Kunjungi"
+                                        android:textSize="12dp"
+                                        android:textStyle="bold"
+                                        tools:ignore="OnClick" />
+
+                                    <Button
+                                        android:id="@+id/callRSUDNyiAgengSerang"
+                                        android:layout_width="100dp"
+                                        android:layout_height="30dp"
+                                        android:layout_marginLeft="10dp"
+                                        android:background="@drawable/border_radius"
+                                        android:backgroundTint="#FFCB30"
+                                        android:gravity="center"
+                                        android:padding="8dp"
+                                        android:text="Telephone"
+                                        android:textSize="12dp"
+                                        android:textStyle="bold"
+                                        tools:ignore="OnClick" />
+
+                                </LinearLayout>
                             </LinearLayout>
                         </LinearLayout>
-                    </androidx.cardview.widget.CardView>
-                </GridLayout>
-            </LinearLayout>
-
-            <GridLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:columnCount="2"
-                android:background="@drawable/custom_title_background"
-                android:padding="3dp"
-                >
+                    </LinearLayout>
+                </LinearLayout>
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:text="Rincian Persebaran COVID-19 di Kulon Progo"
-                    android:textColor="#000000"
-                    android:textSize="16dp"
-                    android:textStyle="bold"
-                    android:padding="5dp"
-                    />
-
-            </GridLayout>
-
-            <GridLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:gravity="center"
-                android:columnCount="3"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="2dp"
-                >
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_rowWeight="1"
-                    android:layout_columnWeight="1"
-                    android:orientation="horizontal"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/barlowcondensedmedium"
                     android:gravity="center"
-                    >
-                    <View
-                        android:layout_width="12dp"
-                        android:layout_height="12dp"
-                        android:background="#F44336"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Positif"
-                        android:textSize="12dp"
-                        android:paddingBottom="2dp"
-                        android:layout_marginLeft="3dp"
-                        />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_rowWeight="1"
-                    android:layout_columnWeight="1"
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    >
-                    <View
-                        android:layout_width="12dp"
-                        android:layout_height="12dp"
-                        android:background="#FF9696"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="PDP"
-                        android:textSize="12dp"
-                        android:paddingBottom="2dp"
-                        android:layout_marginLeft="3dp"
-                        />
-                </LinearLayout>
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_rowWeight="1"
-                    android:layout_columnWeight="1"
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    >
-                    <View
-                        android:layout_width="12dp"
-                        android:layout_height="12dp"
-                        android:background="#8BC34A"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="ODP"
-                        android:textSize="12dp"
-                        android:paddingBottom="2dp"
-                        android:layout_marginLeft="3dp"
-                        />
-                </LinearLayout>
-
-            </GridLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:layout_marginTop="5dp"
-                android:id="@+id/subdistrict_grid_recycler"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/custom_title_background"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="Peta Persebaran COVID-19"
+                    android:text="Versi 1.0.0 Beta"
                     android:textColor="#000000"
-                    android:textSize="16dp"
-                    android:textStyle="bold"
-                    android:padding="5dp"
-                    />
+                    android:textSize="8dp" />
             </LinearLayout>
 
-<!--                <WebView-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="500dp"-->
-<!--                    android:layout_marginLeft="5dp"-->
-<!--                    android:layout_marginTop="10dp"-->
-<!--                    android:layout_marginRight="5dp"-->
-<!--                    android:layout_marginBottom="10dp"-->
-<!--                    android:background="@drawable/border_radius"-->
-<!--                    />-->
-            </LinearLayout>
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/custom_title_background"
-                android:layout_marginBottom="5dp"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:text="Rumah Sakit Rujukan COVID-19 di Kulon Progo"
-                    android:textColor="#000000"
-                    android:textSize="16dp"
-                    android:textStyle="bold"
-                    android:padding="5dp"
-                    android:layout_marginLeft="10dp"
-                    />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="5dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:background="@drawable/data_border_radius"
-                        >
-                        <ImageView
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            android:layout_margin="5dp"
-                            android:padding="10dp"
-                            android:src="@drawable/ic_hospital" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginRight="5dp"
-                                android:text="RSUD Wates"
-                                android:textColor="#000000"
-                                android:textSize="16dp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginRight="5dp"
-                                android:text="Jl. Tentara Pelajar KM. 1 No. 5, Area Sawah, Beji, Wates, Kabupaten Kulon Progo 55651"
-                                android:textColor="#000000"
-                                android:textSize="10dp" />
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginBottom="10dp"
-                                android:gravity="center"
-                                android:orientation="horizontal">
-
-                                <Button
-                                    android:id="@+id/mapsRSUDWates"
-                                    android:layout_width="100dp"
-                                    android:layout_height="30dp"
-                                    android:background="@drawable/border_radius"
-                                    android:backgroundTint="@color/colorPrimaryDark"
-                                    android:gravity="center"
-                                    android:padding="8dp"
-                                    android:text="Kunjungi"
-                                    android:textSize="12dp"
-                                    android:textStyle="bold"
-                                    tools:ignore="OnClick" />
-
-                                <Button
-                                    android:id="@+id/callRSUDWates"
-                                    android:layout_width="100dp"
-                                    android:layout_height="30dp"
-                                    android:layout_marginLeft="10dp"
-                                    android:background="@drawable/border_radius"
-                                    android:backgroundTint="#FFCB30"
-                                    android:gravity="center"
-                                    android:padding="8dp"
-                                    android:text="Telephone"
-                                    android:textSize="12dp"
-                                    android:textStyle="bold"
-                                    tools:ignore="OnClick" />
-
-                            </LinearLayout>
-                        </LinearLayout>
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="5dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:background="@drawable/data_border_radius"
-                        >
-
-                        <ImageView
-                            android:layout_width="80dp"
-                            android:layout_height="80dp"
-                            android:layout_margin="5dp"
-                            android:padding="10dp"
-                            android:src="@drawable/ic_hospital" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginRight="5dp"
-                                android:text="RSUD Nyi Ageng Serang"
-                                android:textColor="#000000"
-                                android:textSize="16dp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginRight="5dp"
-                                android:fontFamily="@font/barlowcondensedmedium"
-                                android:text="Jl. Bantar Kulon, Banguncipto, Sentolo, Kabupaten Kulon Progo 55664"
-                                android:textColor="#000000"
-                                android:textSize="10dp" />
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="10dp"
-                                android:layout_marginBottom="10dp"
-                                android:gravity="center"
-                                android:orientation="horizontal">
-
-                                <Button
-                                    android:id="@+id/mapsRSUDNyiAgengSerang"
-                                    android:layout_width="100dp"
-                                    android:layout_height="30dp"
-                                    android:background="@drawable/border_radius"
-                                    android:backgroundTint="@color/colorPrimaryDark"
-                                    android:gravity="center"
-                                    android:padding="8dp"
-                                    android:text="Kunjungi"
-                                    android:textSize="12dp"
-                                    android:textStyle="bold"
-                                    tools:ignore="OnClick" />
-
-                                <Button
-                                    android:id="@+id/callRSUDNyiAgengSerang"
-                                    android:layout_width="100dp"
-                                    android:layout_height="30dp"
-                                    android:layout_marginLeft="10dp"
-                                    android:background="@drawable/border_radius"
-                                    android:backgroundTint="#FFCB30"
-                                    android:gravity="center"
-                                    android:padding="8dp"
-                                    android:text="Telephone"
-                                    android:textSize="12dp"
-                                    android:textStyle="bold"
-                                    tools:ignore="OnClick" />
-
-                            </LinearLayout>
-                        </LinearLayout>
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginBottom="10dp"
-                android:fontFamily="@font/barlowcondensedmedium"
-                android:gravity="center"
-                android:text="Versi 1.0.0 Beta"
-                android:textColor="#000000"
-                android:textSize="8dp" />
-        </LinearLayout>
-
-    </ScrollView>
-</LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

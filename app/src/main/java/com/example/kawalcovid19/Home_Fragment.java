@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.GridLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
@@ -23,6 +24,9 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.viewpager2.widget.CompositePageTransformer;
+import androidx.viewpager2.widget.MarginPageTransformer;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.kawalcovid19.adapter.SliderAdapter;
@@ -30,6 +34,8 @@ import com.example.kawalcovid19.adapter.StatisticDetailAdaptor;
 import com.example.kawalcovid19.model.SliderModel;
 import com.example.kawalcovid19.model.indonesiaStatistic.IndonesiaGetStatistic;
 import com.example.kawalcovid19.model.indonesiaStatistic.IndonesiaStatistic;
+import com.example.kawalcovid19.model.source.Source;
+import com.example.kawalcovid19.model.source.SourceModel;
 import com.example.kawalcovid19.model.statistics.GetStatistics;
 import com.example.kawalcovid19.model.statistics.Statistics;
 import com.example.kawalcovid19.model.statistics.Subdistric;
@@ -37,6 +43,7 @@ import com.example.kawalcovid19.rest.ApiClient;
 import com.example.kawalcovid19.rest.ApiInterface;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import retrofit2.Call;
@@ -50,11 +57,14 @@ public class Home_Fragment extends Fragment {
     private static final int CALL_PERMISSION_REQUEST_CODE = 123;
     ViewFlipper imageFlip;
     Statistics statistics;
+    Source source;
     IndonesiaStatistic indonesiaStatistic;
     List<List<Subdistric>> subdistricList = new ArrayList<>();
     ApiInterface apiInterface;
     private ViewPager2 viewPager2;
     private Handler sliderHandler = new Handler();
+    boolean dataStatisticKulonProgo = true;
+    boolean dataStatisticIndonesia = false;
     private Runnable sliderRunnable = new Runnable() {
         @Override
         public void run() {
@@ -74,11 +84,11 @@ public class Home_Fragment extends Fragment {
         viewPager2 = view.findViewById(R.id.viewPager);
 
         final List<SliderModel> sliderModels = new ArrayList<>();
-//        sliderModels.add(new SliderModel(R.drawable.flipper_main));
-//        sliderModels.add(new SliderModel(R.drawable.flipper_content_1));
-//        sliderModels.add(new SliderModel(R.drawable.flipper_content_2));
-//        sliderModels.add(new SliderModel(R.drawable.flipper_content_3));
-//        sliderModels.add(new SliderModel(R.drawable.flipper_content_4));
+        sliderModels.add(new SliderModel(R.drawable.flipper_main));
+        sliderModels.add(new SliderModel(R.drawable.flipper_content_1));
+        sliderModels.add(new SliderModel(R.drawable.flipper_content_2));
+        sliderModels.add(new SliderModel(R.drawable.flipper_content_3));
+        sliderModels.add(new SliderModel(R.drawable.flipper_content_4));
         viewPager2.setAdapter(new SliderAdapter(sliderModels, viewPager2));
         viewPager2.setClipToPadding(false);
         viewPager2.setClipChildren(false);
@@ -92,9 +102,8 @@ public class Home_Fragment extends Fragment {
                 int pageHeight = viewPager2.getHeight();
                 int paddingLeft = viewPager2.getPaddingLeft();
                 float transformPos = (float) (page.getLeft() - (viewPager2.getScrollX() + paddingLeft)) / pageWidth;
-                final float normalizedposition = Math.abs(1 - Math.abs(transformPos));
+                final float normalizedposition = Math.abs(Math.abs(position)-1);
                 page.setAlpha(normalizedposition + 0.5f);
-
                 int max = -pageHeight / 10;
 
                 if (transformPos < -1) { // [-Infinity,-1)
@@ -107,8 +116,6 @@ public class Home_Fragment extends Fragment {
                     // This page is way off-screen to the right.
                     page.setTranslationY(0);
                 }
-
-
             }
         });
 //        CompositePageTransformer compositePageTransformer = new CompositePageTransformer();
@@ -143,6 +150,23 @@ public class Home_Fragment extends Fragment {
         final CardView btnPDP = (CardView) view.findViewById(R.id.pdp);
         final CardView btnVillagers = (CardView) view.findViewById(R.id.villagers);
         final TextView statistic_label = (TextView) view.findViewById(R.id.statistic_label);
+        final SwipeRefreshLayout refreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.fragment_home);
+        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        if(dataStatisticKulonProgo == true && dataStatisticIndonesia == false) {
+                            loadStatisticData();
+                        }else{
+                            loadStatisticIndonesia();
+                        }
+                        refreshLayout.setRefreshing(false);
+                    }
+                }, 2000);
+            }
+                });
         btnPositive.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -187,6 +211,8 @@ public class Home_Fragment extends Fragment {
                 statistic_label.setText("di Kulon Progo");
                 btnStatisticIndonesai.setBackgroundResource(R.drawable.hover_unactive);
                 btnStatisticKulonProgo.setBackgroundResource(R.drawable.hover_statistic_change);
+                dataStatisticKulonProgo = true;
+                dataStatisticIndonesia = false;
                 loadStatisticData();
             }
         });
@@ -196,6 +222,8 @@ public class Home_Fragment extends Fragment {
                 statistic_label.setText("di Indonesia");
                 btnStatisticIndonesai.setBackgroundResource(R.drawable.hover_statistic_change2);
                 btnStatisticKulonProgo.setBackgroundResource(R.drawable.hover_unactive);
+                dataStatisticKulonProgo = false;
+                dataStatisticIndonesia = true;
                 loadStatisticIndonesia();
             }
         });
@@ -244,12 +272,7 @@ public class Home_Fragment extends Fragment {
                 if (response.code() == 200) {
                     if (response.body().getSuccess() == true) {
                         statistics = response.body().getResult();
-
-                        for (int i = 1; i <= statistics.getSubdistrics().size(); i++) {
-                            if (i % 4 == 0) {
-                                subdistricList.add(statistics.getSubdistrics().subList(i - 4, i));
-                            }
-                        }
+                        subdistricList = statistics.getSubdistrics();
                         changeStatisticData();
                         changeDetailStatisticData();
                     } else {
@@ -302,7 +325,8 @@ public class Home_Fragment extends Fragment {
         TextView odpTotalText = getActivity().findViewById(R.id.odp_count);
         TextView pdpTotalText = getActivity().findViewById(R.id.pdp_count);
         TextView totalVillagerText = getActivity().findViewById(R.id.villagers_count);
-
+        TextView statistic_source = getActivity().findViewById(R.id.statistic_source);
+        TextView statistic_source_maps = getActivity().findViewById(R.id.statistic_source_maps);
         statisticsUpdatedAtText.setText(statistics.getUpdatedAt());
         positiveCount.setText(statistics.getPositive().getTotal());
         recoveredCount.setText(statistics.getPositive().getRecovered());
@@ -310,9 +334,12 @@ public class Home_Fragment extends Fragment {
         odpTotalCard.setVisibility(View.VISIBLE);
         pdpTotalCard.setVisibility(View.VISIBLE);
         totalVillagerCard.setVisibility(View.VISIBLE);
-        odpTotalText.setText(statistics.getMonitoring().getTotal());
-        pdpTotalText.setText(statistics.getSupervision().getTotal());
+        odpTotalText.setText(statistics.getSupervision().getTotal());
+        pdpTotalText.setText(statistics.getMonitoring().getTotal());
         totalVillagerText.setText(statistics.getVillagerTotal());
+        statistic_source.setText(source.getResult().getSourceStatisticKP());
+        statistic_source_maps.setText(source.getResult().getSourceMapsKP());
+
     }
 
     private void changeIndonesiaStatisticData() {
@@ -323,20 +350,22 @@ public class Home_Fragment extends Fragment {
         CardView odpTotalCard = getActivity().findViewById(R.id.odp);
         CardView pdpTotalCard = getActivity().findViewById(R.id.pdp);
         CardView totalVillagerCard = getActivity().findViewById(R.id.villagers);
-//        TextView odpTotalText = getActivity().findViewById(R.id.odp_count);
-//        TextView pdpTotalText = getActivity().findViewById(R.id.pdp_count);
-//        TextView totalVillagerText = getActivity().findViewById(R.id.villagers_count);
-
+        TextView odpTotalText = getActivity().findViewById(R.id.odp_count);
+        TextView pdpTotalText = getActivity().findViewById(R.id.pdp_count);
+        TextView totalVillagerText = getActivity().findViewById(R.id.villagers_count);
+        GridLayout statistic_row_2 = getActivity().findViewById(R.id.statistic_row_2);
+        TextView statistic_source = getActivity().findViewById(R.id.statistic_source);
+        TextView statistic_source_maps = getActivity().findViewById(R.id.statistic_source_maps);
         statisticsUpdatedAtText.setText(indonesiaStatistic.getUpdatedAt());
         positiveCount.setText(indonesiaStatistic.getStatistic().getActive().toString());
         recoveredCount.setText(indonesiaStatistic.getStatistic().getRecovered().toString());
         deadCount.setText(indonesiaStatistic.getStatistic().getDeaths().toString());
-        odpTotalCard.setVisibility(View.GONE);
-        pdpTotalCard.setVisibility(View.GONE);
-        totalVillagerCard.setVisibility(View.GONE);
-//        odpTotalText.setText(statistics.getMonitoring().getTotal());
-//        pdpTotalText.setText(statistics.getSupervision().getTotal());
-//        totalVillagerText.setText(statistics.getVillagerTotal());
+        totalVillagerCard.setVisibility(View.VISIBLE);
+        odpTotalText.setText("-");
+        pdpTotalText.setText("-");
+        totalVillagerText.setText(indonesiaStatistic.getTotalVillagers());
+        statistic_source.setText(source.getResult().getSourceStatisticIndonesia());
+        statistic_source_maps.setText(source.getResult().getSourceMapsIndonesia());
     }
 
     private void changeDetailStatisticData() {

@@ -78,16 +78,27 @@ public class StatisticDetailAdaptor {
 
         @Override
         public void onBindViewHolder(@NonNull DetailComponentViewHolder holder, int position) {
-            holder.subdistrictNameText.setText(subdistrics.get(position).getName());
-            holder.subdistrictPositiveTotalText.setText(subdistrics.get(position).getPositive());
-            // TODO current data not available
-//            holder.subdistrictRecoveredTotalText.setText("0");
-            // TODO current data not available
-//            holder.subdistrictDeadTotalText.setText("0");
-            // TODO current data not available
-            holder.subdistrictODPTotalText.setText("0");
-            // TODO current data not available
-            holder.subdistrictPDPTotalText.setText("0");
+            position = 0;
+            holder.subdistrictNameText1.setText(subdistrics.get(position).getName());
+            holder.subdistrictPositiveTotalText1.setText(subdistrics.get(position).getPositive());
+            holder.subdistrictODPTotalText1.setText(subdistrics.get(position).getOdp());
+            holder.subdistrictPDPTotalText1.setText(subdistrics.get(position).getPdp());
+            position++;
+            holder.subdistrictNameText2.setText(subdistrics.get(position).getName());
+            holder.subdistrictPositiveTotalText2.setText(subdistrics.get(position).getPositive());
+            holder.subdistrictODPTotalText2.setText(subdistrics.get(position).getOdp());
+            holder.subdistrictPDPTotalText2.setText(subdistrics.get(position).getPdp());
+            position++;
+            holder.subdistrictNameText3.setText(subdistrics.get(position).getName());
+            holder.subdistrictPositiveTotalText3.setText(subdistrics.get(position).getPositive());
+            holder.subdistrictODPTotalText3.setText(subdistrics.get(position).getOdp());
+            holder.subdistrictPDPTotalText3.setText(subdistrics.get(position).getPdp());
+            position++;
+            holder.subdistrictNameText4.setText(subdistrics.get(position).getName());
+            holder.subdistrictPositiveTotalText4.setText(subdistrics.get(position).getPositive());
+            holder.subdistrictODPTotalText4.setText(subdistrics.get(position).getOdp());
+            holder.subdistrictPDPTotalText4.setText(subdistrics.get(position).getPdp());
+
         }
 
         @Override
@@ -97,26 +108,53 @@ public class StatisticDetailAdaptor {
 
         class DetailComponentViewHolder extends RecyclerView.ViewHolder {
             public final View view;
-            CardView statisticDetailCard;
-            TextView subdistrictNameText;
-            TextView subdistrictPositiveTotalText;
-//            TextView subdistrictRecoveredTotalText;
-//            TextView subdistrictDeadTotalText;
-            TextView subdistrictODPTotalText;
+            CardView statisticDetailCard1;
+            CardView statisticDetailCard2;
+            CardView statisticDetailCard3;
+            CardView statisticDetailCard4;
+            TextView subdistrictNameText1;
+            TextView subdistrictNameText2;
+            TextView subdistrictNameText3;
+            TextView subdistrictNameText4;
+            TextView subdistrictPositiveTotalText1;
+            TextView subdistrictPositiveTotalText2;
+            TextView subdistrictPositiveTotalText3;
+            TextView subdistrictPositiveTotalText4;
+            TextView subdistrictODPTotalText1;
+            TextView subdistrictODPTotalText2;
+            TextView subdistrictODPTotalText3;
+            TextView subdistrictODPTotalText4;
             TextView subdistrictPDPTotalText;
+            TextView subdistrictPDPTotalText1;
+            TextView subdistrictPDPTotalText2;
+            TextView subdistrictPDPTotalText3;
+            TextView subdistrictPDPTotalText4;
 
 
             public DetailComponentViewHolder(@NonNull View itemView) {
                 super(itemView);
                 view = itemView;
 
-                statisticDetailCard = view.findViewById(R.id.statistic_detail_card);
-                subdistrictNameText = view.findViewById(R.id.subdistric_name);
-                subdistrictPositiveTotalText = view.findViewById(R.id.subdistric_positive_total);
-                //subdistrictRecoveredTotalText = view.findViewById(R.id.subdistric_recovered_total);
-                //subdistrictDeadTotalText = view.findViewById(R.id.subdistric_dead_total);
-                subdistrictODPTotalText = view.findViewById(R.id.subdistric_odp_total);
-                subdistrictPDPTotalText = view.findViewById(R.id.subdistric_pdp_total);
+                statisticDetailCard1 = view.findViewById(R.id.subdistric_card_1);
+                statisticDetailCard2 = view.findViewById(R.id.subdistric_card_2);
+                statisticDetailCard3 = view.findViewById(R.id.subdistric_card_3);
+                statisticDetailCard4 = view.findViewById(R.id.subdistric_card_4);
+                subdistrictNameText1 = view.findViewById(R.id.subdistric_name_1);
+                subdistrictNameText2 = view.findViewById(R.id.subdistric_name_2);
+                subdistrictNameText3 = view.findViewById(R.id.subdistric_name_3);
+                subdistrictNameText4 = view.findViewById(R.id.subdistric_name_4);
+                subdistrictPositiveTotalText1 = view.findViewById(R.id.positive_count_subdistric_1);
+                subdistrictPositiveTotalText2 = view.findViewById(R.id.positive_count_subdistric_2);
+                subdistrictPositiveTotalText3 = view.findViewById(R.id.positive_count_subdistric_3);
+                subdistrictPositiveTotalText4 = view.findViewById(R.id.positive_count_subdistric_4);
+                subdistrictODPTotalText1 = view.findViewById(R.id.odp_count_subdistric_1);
+                subdistrictODPTotalText2 = view.findViewById(R.id.odp_count_subdistric_2);
+                subdistrictODPTotalText3 = view.findViewById(R.id.odp_count_subdistric_3);
+                subdistrictODPTotalText4 = view.findViewById(R.id.odp_count_subdistric_4);
+                subdistrictPDPTotalText1 = view.findViewById(R.id.pdp_count_subdistric_1);
+                subdistrictPDPTotalText2 = view.findViewById(R.id.pdp_count_subdistric_2);
+                subdistrictPDPTotalText3 = view.findViewById(R.id.pdp_count_subdistric_3);
+                subdistrictPDPTotalText4 = view.findViewById(R.id.pdp_count_subdistric_4);
             }
         }
     }

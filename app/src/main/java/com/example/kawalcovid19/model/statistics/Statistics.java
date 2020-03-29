@@ -14,20 +14,21 @@ public class Statistics extends StatisticBase {
     @SerializedName("positive")
     private Positive positive;
     @SerializedName("subdistrics")
-    private List<Subdistric> subdistrics;
+    private List<List<Subdistric>> subdistrics;
     @SerializedName("villagerTotal")
     private String villagerTotal;
 
     public Statistics() {
     }
 
-    public Statistics(Monitoring monitoring, Supervision supervision, Positive positive, List<Subdistric> subdistrics, String updatedAt, String villagerTotal) {
+    public Statistics(Monitoring monitoring, Supervision supervision, Positive positive, List<List<Subdistric>> subdistrics, String updatedAt, String villagerTotal, String maps) {
         this.monitoring = monitoring;
         this.supervision = supervision;
         this.positive = positive;
         this.subdistrics = subdistrics;
         this.villagerTotal = villagerTotal;
         this.setUpdatedAt(updatedAt);
+        this.setMaps(maps);
     }
 
     public Monitoring getMonitoring() {
@@ -54,11 +55,11 @@ public class Statistics extends StatisticBase {
         this.positive = positive;
     }
 
-    public List<Subdistric> getSubdistrics() {
+    public List<List<Subdistric>> getSubdistrics() {
         return subdistrics;
     }
 
-    public void setSubdistrics(List<Subdistric> subdistrics) {
+    public void setSubdistrics(List<List<Subdistric>> subdistrics) {
         this.subdistrics = subdistrics;
     }
 

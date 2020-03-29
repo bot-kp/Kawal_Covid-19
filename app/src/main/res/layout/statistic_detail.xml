@@ -1,104 +1,314 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    android:id="@+id/statistic_detail_card"
+<GridLayout android:id="@+id/gl_menu_1"
     android:layout_width="match_parent"
-    android:layout_height="90dp"
-    android:layout_rowWeight="1"
-    android:layout_columnWeight="1"
-    android:layout_margin="3dp"
-    android:layout_marginLeft="5dp"
-    android:layout_marginRight="5dp"
-    android:outlineSpotShadowColor="#FFFFFF"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_height="80dp"
+    android:columnCount="4"
+    android:rowCount="1"
+    android:backgroundTint="#FFFFFF"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/subdistric_card_1"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/data_border_radius"
-        android:orientation="vertical">
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        app:cardCornerRadius="0dp"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_margin="5dp"
+            android:background="@drawable/data_border_radius"
+            android:orientation="vertical">
+                <TextView
+                    android:id="@+id/subdistric_name_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_marginLeft="8dp"
+                    android:text="Positif"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/positive_count_subdistric_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/barlowcondensedmedium"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="#F44336"
+                    android:textSize="24dp"
+                    android:textStyle="bold"
+                    android:layout_marginRight="5dp"
+                    />
+                <TextView
+                    android:id="@+id/odp_count_subdistric_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/barlowcondensedmedium"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="#FF9696"
+                    android:textSize="24dp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/pdp_count_subdistric_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/barlowcondensedmedium"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="#8BC34A"
+                    android:textSize="24dp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="5dp"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/subdistric_card_2"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        app:cardCornerRadius="0dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/data_border_radius"
+            android:orientation="vertical">
             <TextView
-                android:id="@+id/subdistric_name"
+                android:id="@+id/subdistric_name_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
+                android:layout_marginLeft="8dp"
+                android:text="Positif"
+                android:textSize="15dp"
+                android:textStyle="bold"
                 android:gravity="center"
-                android:text="Galur"
-                android:textSize="10dp"
-                android:textStyle="bold" />
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/positive_count_subdistric_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/barlowcondensedmedium"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="#F44336"
+                    android:textSize="24dp"
+                    android:textStyle="bold"
+                    android:layout_marginRight="5dp"
+                    />
+                <TextView
+                    android:id="@+id/odp_count_subdistric_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/barlowcondensedmedium"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="#FF9696"
+                    android:textSize="24dp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/pdp_count_subdistric_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/barlowcondensedmedium"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="#8BC34A"
+                    android:textSize="24dp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="5dp"
+                    />
+
+            </LinearLayout>
         </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/subdistric_card_4"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        app:cardCornerRadius="0dp"
+        >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginEnd="10dp"
-            android:gravity="center"
-            android:orientation="horizontal">
-
+            android:layout_margin="5dp"
+            android:background="@drawable/data_border_radius"
+            android:orientation="vertical">
             <TextView
-                android:id="@+id/subdistric_positive_total"
-                android:layout_width="wrap_content"
+                android:id="@+id/subdistric_name_3"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="5dp"
-                android:fontFamily="@font/barlowcondensedmedium"
+                android:layout_margin="5dp"
+                android:layout_marginLeft="8dp"
+                android:text="Positif"
+                android:textSize="15dp"
+                android:textStyle="bold"
                 android:gravity="center"
-                android:text="0"
-                android:textColor="#F44336"
-                android:textSize="16dp"
-                android:textStyle="bold" />
+                />
 
-<!--            <TextView-->
-<!--                android:id="@+id/subdistric_recovered_total"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:fontFamily="@font/barlowcondensedmedium"-->
-<!--                android:gravity="center"-->
-<!--                android:text="0"-->
-<!--                android:textColor="#2196F3"-->
-<!--                android:textSize="16dp"-->
-<!--                android:textStyle="bold" />-->
-
-<!--            <TextView-->
-<!--                android:id="@+id/subdistric_dead_total"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginLeft="5dp"-->
-<!--                android:fontFamily="@font/barlowcondensedmedium"-->
-<!--                android:gravity="center"-->
-<!--                android:text="0"-->
-<!--                android:textColor="#FFC107"-->
-<!--                android:textSize="16dp"-->
-<!--                android:textStyle="bold" />-->
-            <TextView
-                android:id="@+id/subdistric_pdp_total"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/barlowcondensedmedium"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
                 android:gravity="center"
-                android:text="0"
-                android:textColor="#FF9696"
-                android:textSize="16dp"
-                android:textStyle="bold" />
-            <TextView
-                android:id="@+id/subdistric_odp_total"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:fontFamily="@font/barlowcondensedmedium"
-                android:gravity="center"
-                android:text="0"
-                android:textColor="#8BC34A"
-                android:textSize="16dp"
-                android:textStyle="bold" />
+                android:orientation="horizontal">
 
+                <TextView
+                    android:id="@+id/positive_count_subdistric_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:fontFamily="@font/barlowcondensedmedium"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="#F44336"
+                    android:textSize="24dp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/odp_count_subdistric_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/barlowcondensedmedium"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="#FF9696"
+                    android:textSize="24dp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/pdp_count_subdistric_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/barlowcondensedmedium"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="#8BC34A"
+                    android:textSize="24dp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="5dp"
+                    />
+
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-</androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
+    <androidx.cardview.widget.CardView
+        android:id="@+id/subdistric_card_3"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1"
+        app:cardCornerRadius="0dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/data_border_radius"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/subdistric_name_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_marginLeft="8dp"
+                android:text="Positif"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/positive_count_subdistric_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/barlowcondensedmedium"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="#F44336"
+                    android:textSize="24dp"
+                    android:textStyle="bold"
+                    android:layout_marginRight="5dp"
+                    />
+                <TextView
+                    android:id="@+id/odp_count_subdistric_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/barlowcondensedmedium"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="#FF9696"
+                    android:textSize="24dp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/pdp_count_subdistric_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/barlowcondensedmedium"
+                    android:gravity="center"
+                    android:text="0"
+                    android:textColor="#8BC34A"
+                    android:textSize="24dp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="5dp"
+                    />
+
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</GridLayout>
