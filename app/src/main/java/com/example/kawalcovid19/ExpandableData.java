@@ -1,6 +1,6 @@
 package com.example.kawalcovid19;
 
-import com.example.kawalcovid19.model.statistics.ExpandableModel;
+import com.example.kawalcovid19.model.ExpandableModel;
 
 import java.util.ArrayList;
 

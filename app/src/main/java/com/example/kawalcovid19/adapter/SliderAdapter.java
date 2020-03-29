@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.kawalcovid19.R;
-import com.example.kawalcovid19.model.statistics.SliderModel;
+import com.example.kawalcovid19.model.SliderModel;
 import com.makeramen.roundedimageview.RoundedImageView;
 
 import java.util.List;

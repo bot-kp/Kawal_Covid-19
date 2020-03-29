@@ -13,13 +13,12 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.kawalcovid19.adapter.ExpandableAdapter;
-import com.example.kawalcovid19.model.statistics.ExpandableModel;
+import com.example.kawalcovid19.model.ExpandableModel;
 
 import java.util.ArrayList;
 

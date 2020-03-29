@@ -78,13 +78,12 @@ public class StatisticDetailAdaptor {
 
         @Override
         public void onBindViewHolder(@NonNull DetailComponentViewHolder holder, int position) {
-//            holder.statisticDetailCard.
             holder.subdistrictNameText.setText(subdistrics.get(position).getName());
             holder.subdistrictPositiveTotalText.setText(subdistrics.get(position).getPositive());
             // TODO current data not available
-            holder.subdistrictRecoveredTotalText.setText("0");
+//            holder.subdistrictRecoveredTotalText.setText("0");
             // TODO current data not available
-            holder.subdistrictDeadTotalText.setText("0");
+//            holder.subdistrictDeadTotalText.setText("0");
             // TODO current data not available
             holder.subdistrictODPTotalText.setText("0");
             // TODO current data not available
@@ -101,8 +100,8 @@ public class StatisticDetailAdaptor {
             CardView statisticDetailCard;
             TextView subdistrictNameText;
             TextView subdistrictPositiveTotalText;
-            TextView subdistrictRecoveredTotalText;
-            TextView subdistrictDeadTotalText;
+//            TextView subdistrictRecoveredTotalText;
+//            TextView subdistrictDeadTotalText;
             TextView subdistrictODPTotalText;
             TextView subdistrictPDPTotalText;
 
