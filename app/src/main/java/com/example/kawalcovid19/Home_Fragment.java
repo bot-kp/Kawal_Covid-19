@@ -166,37 +166,69 @@ public class Home_Fragment extends Fragment {
         btnPositive.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "Jumlah Pasien Positif Adalah " + statistics.getPositive().getTotal() + " Jiwa", Toast.LENGTH_SHORT).show();
+                String total = "-";
+                if (dataStatisticKulonProgo) {
+                    total = statistics.getPositive().getTotal();
+                } else if (dataStatisticIndonesia) {
+                    total = indonesiaStatistic.getStatistic().getActive().toString();
+                }
+                Toast.makeText(getContext(), "Jumlah Pasien Positif Adalah " + total + " Jiwa", Toast.LENGTH_SHORT).show();
             }
         });
         btnRecovered.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "Jumlah Pasien Sembuh Adalah " + statistics.getPositive().getRecovered() + " Jiwa", Toast.LENGTH_SHORT).show();
+                String recovered = "-";
+                if (dataStatisticKulonProgo) {
+                    recovered = statistics.getPositive().getRecovered();
+                } else if (dataStatisticIndonesia) {
+                    recovered = indonesiaStatistic.getStatistic().getRecovered().toString();
+                }
+                Toast.makeText(getContext(), "Jumlah Pasien Sembuh Adalah " + recovered + " Jiwa", Toast.LENGTH_SHORT).show();
             }
         });
         btnDead.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "Jumlah Pasien Meninggal Adalah " + statistics.getPositive().getDead() + " Jiwa", Toast.LENGTH_SHORT).show();
+                String deaths = "-";
+                if (dataStatisticKulonProgo) {
+                    deaths = statistics.getPositive().getDead();
+                } else if (dataStatisticIndonesia) {
+                    deaths = indonesiaStatistic.getStatistic().getDeaths().toString();
+                }
+                Toast.makeText(getContext(), "Jumlah Pasien Meninggal Adalah " + deaths + " Jiwa", Toast.LENGTH_SHORT).show();
             }
         });
         btnODP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "Jumlah Orang Dalam Pengawasan Adalah " + statistics.getMonitoring().getTotal() + " Jiwa", Toast.LENGTH_SHORT).show();
+                String odp = "-";
+                if (dataStatisticKulonProgo) {
+                    odp = statistics.getMonitoring().getTotal();
+                }
+                Toast.makeText(getContext(), "Jumlah Orang Dalam Pengawasan Adalah " + odp + " Jiwa", Toast.LENGTH_SHORT).show();
             }
         });
         btnPDP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "Jumlah Orang Dalam Pemantauan Adalah " + statistics.getSupervision().getTotal() + " Jiwa", Toast.LENGTH_SHORT).show();
+                String pdp = "-";
+                if (dataStatisticKulonProgo) {
+                    pdp = statistics.getSupervision().getTotal();
+                }
+                Toast.makeText(getContext(), "Jumlah Orang Dalam Pemantauan Adalah " + pdp + " Jiwa", Toast.LENGTH_SHORT).show();
             }
         });
         btnVillagers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "Jumlah Penduduk Adalah " + statistics.getVillagerTotal() + " Jiwa", Toast.LENGTH_SHORT).show();
+                String villagers = "-";
+                if (dataStatisticKulonProgo) {
+                    villagers = statistics.getVillagerTotal();
+                } else if (dataStatisticIndonesia) {
+                    villagers = indonesiaStatistic.getTotalVillagers();
+                }
+                Toast.makeText(getContext(), "Jumlah Penduduk Adalah " + villagers + " Jiwa", Toast.LENGTH_SHORT).show();
             }
         });
         statistic_label.setText("di Kulon Progo");
@@ -297,6 +329,8 @@ public class Home_Fragment extends Fragment {
                         subdistricList = statistics.getSubdistrics();
                         changeStatisticData();
                         changeDetailStatisticData();
+                    } else if (response.body().getMessage() != "") {
+                        Toast.makeText(getContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
                     } else {
                         Toast.makeText(getContext(), "Failed to get data from server.", Toast.LENGTH_LONG).show();
                     }
@@ -321,6 +355,8 @@ public class Home_Fragment extends Fragment {
                     if (response.body().getSuccess() == true) {
                         indonesiaStatistic = response.body().getResult();
                         changeIndonesiaStatisticData();
+                    } else if (response.body().getMessage() != "") {
+                        Toast.makeText(getContext(), response.body().getMessage(), Toast.LENGTH_LONG).show();
                     } else {
                         Toast.makeText(getContext(), "Failed to get data from server.", Toast.LENGTH_LONG).show();
                     }
