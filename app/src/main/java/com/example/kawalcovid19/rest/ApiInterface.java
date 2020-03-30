@@ -1,6 +1,6 @@
 package com.example.kawalcovid19.rest;
 
-import com.example.kawalcovid19.model.Base.ResponseApiBase;
+import com.example.kawalcovid19.NewsGet;
 import com.example.kawalcovid19.model.indonesiaStatistic.IndonesiaGetStatistic;
 import com.example.kawalcovid19.model.statistics.GetStatistics;
 
@@ -12,4 +12,7 @@ public interface ApiInterface {
     Call<GetStatistics> getStatistics();
     @GET("indonesiaStatistic")
     Call<IndonesiaGetStatistic> getIndonesiaStatistic();
+
+    @GET("news")
+    Call<NewsGet> getNews();
 }

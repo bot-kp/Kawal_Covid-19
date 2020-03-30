@@ -24,9 +24,6 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-import androidx.viewpager2.widget.CompositePageTransformer;
-import androidx.viewpager2.widget.MarginPageTransformer;
 import androidx.viewpager2.widget.ViewPager2;
 
 import com.example.kawalcovid19.adapter.SliderAdapter;
@@ -35,7 +32,6 @@ import com.example.kawalcovid19.model.SliderModel;
 import com.example.kawalcovid19.model.indonesiaStatistic.IndonesiaGetStatistic;
 import com.example.kawalcovid19.model.indonesiaStatistic.IndonesiaStatistic;
 import com.example.kawalcovid19.model.source.Source;
-import com.example.kawalcovid19.model.source.SourceModel;
 import com.example.kawalcovid19.model.statistics.GetStatistics;
 import com.example.kawalcovid19.model.statistics.Statistics;
 import com.example.kawalcovid19.model.statistics.Subdistric;
@@ -43,7 +39,6 @@ import com.example.kawalcovid19.rest.ApiClient;
 import com.example.kawalcovid19.rest.ApiInterface;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import retrofit2.Call;
@@ -85,7 +80,7 @@ public class Home_Fragment extends Fragment {
 
         final List<SliderModel> sliderModels = new ArrayList<>();
         sliderModels.add(new SliderModel(R.drawable.flipper_main));
-        sliderModels.add(new SliderModel(R.drawable.flipper_content_1));
+        sliderModels.add(new SliderModel(R.drawable.logo_kulon_progo));
         sliderModels.add(new SliderModel(R.drawable.flipper_content_2));
         sliderModels.add(new SliderModel(R.drawable.flipper_content_3));
         sliderModels.add(new SliderModel(R.drawable.flipper_content_4));
@@ -97,7 +92,6 @@ public class Home_Fragment extends Fragment {
         viewPager2.setPageTransformer(new ViewPager2.PageTransformer() {
             @Override
             public void transformPage(@NonNull View page, float position) {
-
                 int pageWidth = viewPager2.getMeasuredWidth() - viewPager2.getPaddingLeft() - viewPager2.getPaddingRight();
                 int pageHeight = viewPager2.getHeight();
                 int paddingLeft = viewPager2.getPaddingLeft();
@@ -118,16 +112,6 @@ public class Home_Fragment extends Fragment {
                 }
             }
         });
-//        CompositePageTransformer compositePageTransformer = new CompositePageTransformer();
-//        compositePageTransformer.addTransformer(new MarginPageTransformer(40));
-//        compositePageTransformer.addTransformer(new ViewPager2.PageTransformer() {
-//            @Override
-//            public void transformPage(@NonNull View page, float position) {
-//                float r = 1 - Math.abs(position);
-//                page.setScaleY(0.85f + r * 0.15f);
-//            }
-//        });
-//        viewPager2.setPageTransformer(compositePageTransformer);
         viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {
             @Override
             public void onPageSelected(int position) {
@@ -143,6 +127,8 @@ public class Home_Fragment extends Fragment {
         Button btnMapRSUDNyiAgengSerang = (Button) view.findViewById(R.id.mapsRSUDNyiAgengSerang);
         final CardView btnStatisticKulonProgo = (CardView) view.findViewById(R.id.btn_statistic_KP);
         final CardView btnStatisticIndonesai = (CardView) view.findViewById(R.id.btn_statistic_indonesia);
+        final CardView btnStatisticWorld = (CardView) view.findViewById(R.id.btn_statistic_world);
+        final CardView btnSearchByPostalCode = (CardView) view.findViewById(R.id.btn_search_postal_code);
         final CardView btnRecovered = (CardView) view.findViewById(R.id.recovered);
         final CardView btnPositive = (CardView) view.findViewById(R.id.positive);
         final CardView btnDead = (CardView) view.findViewById(R.id.dead);
@@ -150,23 +136,33 @@ public class Home_Fragment extends Fragment {
         final CardView btnPDP = (CardView) view.findViewById(R.id.pdp);
         final CardView btnVillagers = (CardView) view.findViewById(R.id.villagers);
         final TextView statistic_label = (TextView) view.findViewById(R.id.statistic_label);
-        final SwipeRefreshLayout refreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.fragment_home);
-        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+        CardView btnStatisticIndonesiaDetail = (CardView) view.findViewById(R.id.btn_statistic_indonesia_detail);
+
+        btnStatisticIndonesiaDetail.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onRefresh() {
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        if(dataStatisticKulonProgo == true && dataStatisticIndonesia == false) {
-                            loadStatisticData();
-                        }else{
-                            loadStatisticIndonesia();
-                        }
-                        refreshLayout.setRefreshing(false);
-                    }
-                }, 2000);
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), IndonesiaStatisticDetail.class);
+                getContext().startActivity(intent);
             }
-                });
+        });
+
+//        final SwipeRefreshLayout refreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.fragment_home);
+//        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+//            @Override
+//            public void onRefresh() {
+//                new Handler().postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        if(dataStatisticKulonProgo == true && dataStatisticIndonesia == false) {
+//                            loadStatisticData();
+//                        }else{
+//                            loadStatisticIndonesia();
+//                        }
+//                        refreshLayout.setRefreshing(false);
+//                    }
+//                }, 2000);
+//            }
+//                });
         btnPositive.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -204,13 +200,16 @@ public class Home_Fragment extends Fragment {
             }
         });
         statistic_label.setText("di Kulon Progo");
-        btnStatisticKulonProgo.setBackgroundResource(R.drawable.hover_statistic_change);
+        btnStatisticIndonesai.setBackgroundResource(R.drawable.hover_unactive);
+        btnStatisticKulonProgo.setBackgroundResource(R.drawable.hover_statistic_change_left);
+        btnStatisticWorld.setBackgroundResource(R.drawable.hover_unactive);
         btnStatisticKulonProgo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 statistic_label.setText("di Kulon Progo");
                 btnStatisticIndonesai.setBackgroundResource(R.drawable.hover_unactive);
-                btnStatisticKulonProgo.setBackgroundResource(R.drawable.hover_statistic_change);
+                btnStatisticKulonProgo.setBackgroundResource(R.drawable.hover_statistic_change_left);
+                btnStatisticWorld.setBackgroundResource(R.drawable.hover_unactive);
                 dataStatisticKulonProgo = true;
                 dataStatisticIndonesia = false;
                 loadStatisticData();
@@ -220,13 +219,36 @@ public class Home_Fragment extends Fragment {
             @Override
             public void onClick(View v) {
                 statistic_label.setText("di Indonesia");
-                btnStatisticIndonesai.setBackgroundResource(R.drawable.hover_statistic_change2);
+                btnStatisticIndonesai.setBackgroundResource(R.drawable.hover_statistic_change_center);
                 btnStatisticKulonProgo.setBackgroundResource(R.drawable.hover_unactive);
+                btnStatisticWorld.setBackgroundResource(R.drawable.hover_unactive);
+                CardView statistic_indonesia_detail = getActivity().findViewById(R.id.btn_statistic_indonesia_detail);
                 dataStatisticKulonProgo = false;
                 dataStatisticIndonesia = true;
                 loadStatisticIndonesia();
             }
         });
+        btnStatisticWorld.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dataStatisticKulonProgo = false;
+                dataStatisticIndonesia = false;
+                btnStatisticWorld.setBackgroundResource(R.drawable.hover_statistic_change_right);
+                btnStatisticIndonesai.setBackgroundResource(R.drawable.hover_unactive);
+                btnStatisticKulonProgo.setBackgroundResource(R.drawable.hover_unactive);
+                Intent intent = new Intent(getContext(), WebViewStatisticWorld.class);
+                getContext().startActivity(intent);
+                //WEB VIEW THEBASELAB CORONA
+            }
+        });
+        btnSearchByPostalCode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), SearchByPostalCode.class);
+                getContext().startActivity(intent);
+            }
+        });
+
         btnRSUDWates.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -337,8 +359,8 @@ public class Home_Fragment extends Fragment {
         odpTotalText.setText(statistics.getSupervision().getTotal());
         pdpTotalText.setText(statistics.getMonitoring().getTotal());
         totalVillagerText.setText(statistics.getVillagerTotal());
-        statistic_source.setText(source.getResult().getSourceStatisticKP());
-        statistic_source_maps.setText(source.getResult().getSourceMapsKP());
+        //statistic_source.setText(source.getResult().getSourceStatisticKP());
+        //statistic_source_maps.setText(source.getResult().getSourceMapsKP());
 
     }
 
@@ -364,8 +386,8 @@ public class Home_Fragment extends Fragment {
         odpTotalText.setText("-");
         pdpTotalText.setText("-");
         totalVillagerText.setText(indonesiaStatistic.getTotalVillagers());
-        statistic_source.setText(source.getResult().getSourceStatisticIndonesia());
-        statistic_source_maps.setText(source.getResult().getSourceMapsIndonesia());
+        //statistic_source.setText(source.getResult().getSourceStatisticIndonesia());
+        //statistic_source_maps.setText(source.getResult().getSourceMapsIndonesia());
     }
 
     private void changeDetailStatisticData() {

@@ -1,59 +1,90 @@
 package com.example.kawalcovid19.model;
 
+import com.google.gson.annotations.SerializedName;
+
 public class NewsModel {
-private int newsTumbnail;
-private String titleNews;
-private String detailNews;
-private String newsDate;
-private String affairsName;
-private int affairsLogo;
+    @SerializedName("hash")
+    private String hash;
+    @SerializedName("thumbnail")
+    private String thumbnail;
+    @SerializedName("title")
+    private String title;
+    @SerializedName("postedAt")
+    private String postedAt;
+    @SerializedName("desc")
+    private String desc;
+    @SerializedName("source")
+    private String source;
+    @SerializedName("sourceLogo")
+    private String sourceLogo;
 
-    public String getAffairsName() {
-        return affairsName;
+    public NewsModel() {
+
     }
 
-    public String getDetailNews() {
-        return detailNews;
+    public NewsModel(String hash, String thumbnail, String title, String postedAt, String desc, String source, String sourceLogo) {
+        this.hash = hash;
+        this.thumbnail = thumbnail;
+        this.title = title;
+        this.postedAt = postedAt;
+        this.desc = desc;
+        this.source = source;
+        this.sourceLogo = sourceLogo;
     }
 
-    public void setDetailNews(String detailNews) {
-        this.detailNews = detailNews;
+    public String getHash() {
+        return hash;
     }
 
-    public void setAffairsName(String affairsName) {
-        this.affairsName = affairsName;
+    public void setHash(String hash) {
+        this.hash = hash;
     }
 
-    public int getAffairsLogo() {
-        return affairsLogo;
+    public String getThumbnail() {
+        return thumbnail;
     }
 
-    public void setAffairsLogo(int affairsLogo) {
-        this.affairsLogo = affairsLogo;
+    public void setThumbnail(String thumbnail) {
+        this.thumbnail = thumbnail;
     }
 
-    public int getNewsTumbnail() {
-        return newsTumbnail;
+    public String getTitle() {
+        return title;
     }
 
-    public void setNewsTumbnail(int newsTumbnail) {
-        this.newsTumbnail = newsTumbnail;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public String getTitleNews() {
-        return titleNews;
+    public String getPostedAt() {
+        return postedAt;
     }
 
-    public void setTitleNews(String titleNews) {
-        this.titleNews = titleNews;
+    public void setPostedAt(String postedAt) {
+        this.postedAt = postedAt;
     }
 
-    public String getNewsDate() {
-        return newsDate;
+    public String getDesc() {
+        return desc;
     }
 
-    public void setNewsDate(String newsDate) {
-        this.newsDate = newsDate;
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
+    public String getSource() {
+        return source;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
+    }
+
+    public String getSourceLogo() {
+        return sourceLogo;
+    }
+
+    public void setSourceLogo(String sourceLogo) {
+        this.sourceLogo = sourceLogo;
+    }
 }

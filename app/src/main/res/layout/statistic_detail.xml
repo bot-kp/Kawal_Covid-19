@@ -58,7 +58,7 @@
                     android:layout_marginRight="5dp"
                     />
                 <TextView
-                    android:id="@+id/odp_count_subdistric_1"
+                    android:id="@+id/pdp_count_subdistric_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/barlowcondensedmedium"
@@ -68,7 +68,7 @@
                     android:textSize="24dp"
                     android:textStyle="bold" />
                 <TextView
-                    android:id="@+id/pdp_count_subdistric_1"
+                    android:id="@+id/odp_count_subdistric_1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/barlowcondensedmedium"
@@ -135,7 +135,7 @@
                     android:layout_marginRight="5dp"
                     />
                 <TextView
-                    android:id="@+id/odp_count_subdistric_2"
+                    android:id="@+id/pdp_count_subdistric_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/barlowcondensedmedium"
@@ -145,7 +145,7 @@
                     android:textSize="24dp"
                     android:textStyle="bold" />
                 <TextView
-                    android:id="@+id/pdp_count_subdistric_2"
+                    android:id="@+id/odp_count_subdistric_2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/barlowcondensedmedium"
@@ -210,7 +210,7 @@
                     android:textSize="24dp"
                     android:textStyle="bold" />
                 <TextView
-                    android:id="@+id/odp_count_subdistric_3"
+                    android:id="@+id/pdp_count_subdistric_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/barlowcondensedmedium"
@@ -220,7 +220,7 @@
                     android:textSize="24dp"
                     android:textStyle="bold" />
                 <TextView
-                    android:id="@+id/pdp_count_subdistric_3"
+                    android:id="@+id/odp_count_subdistric_3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/barlowcondensedmedium"
@@ -285,7 +285,7 @@
                     android:layout_marginRight="5dp"
                     />
                 <TextView
-                    android:id="@+id/odp_count_subdistric_4"
+                    android:id="@+id/pdp_count_subdistric_4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/barlowcondensedmedium"
@@ -295,7 +295,7 @@
                     android:textSize="24dp"
                     android:textStyle="bold" />
                 <TextView
-                    android:id="@+id/pdp_count_subdistric_4"
+                    android:id="@+id/odp_count_subdistric_4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/barlowcondensedmedium"

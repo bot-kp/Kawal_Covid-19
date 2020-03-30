@@ -53,7 +53,7 @@
                         android:columnOrderPreserved="false"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
-                        android:columnCount="2"
+                        android:columnCount="3"
                         android:backgroundTint="#FFFFFF"
                         >
 
@@ -93,7 +93,7 @@
                                     <TextView
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="KULON PROGO"
+                                        android:text=" KULON PROGO "
                                         android:textColor="@color/colorPrimaryDark"
                                         android:textSize="12dp"
                                         android:textStyle="bold" />
@@ -141,7 +141,7 @@
                                         android:id="@+id/tv_map_indonesia"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
-                                        android:text="INDONESIA"
+                                        android:text=" INDONESIA "
                                         android:textColor="@color/colorPrimaryDark"
                                         android:textSize="12dp"
                                         android:textStyle="bold" />
@@ -150,6 +150,51 @@
                             </LinearLayout>
                         </androidx.cardview.widget.CardView>
 
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/btn_statistic_world"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_rowWeight="1"
+                            android:layout_columnWeight="1"
+                            android:paddingTop="10dp"
+                            android:paddingRight="10dp"
+                            android:paddingBottom="10dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="5dp"
+                                android:background="@drawable/data_border_radius"
+                                android:focusableInTouchMode="true"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginBottom="5dp"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <ImageView
+                                        android:id="@+id/ic_map_world"
+                                        android:layout_width="100dp"
+                                        android:layout_height="40dp"
+                                        android:src="@drawable/ic_map_world" />
+
+                                    <TextView
+                                        android:id="@+id/tv_map_world"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text=" DUNIA "
+                                        android:textColor="@color/colorPrimaryDark"
+                                        android:textSize="12dp"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
                     </GridLayout>
 
                     <LinearLayout
@@ -744,6 +789,7 @@
                         android:textSize="10dp"
                         android:textAlignment="textEnd"
                         />
+
                     <GridLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -857,7 +903,116 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="@drawable/custom_title_background"
-                        >
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:paddingLeft="5dp"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:text="Cek Lokasi Anda Sekarang"
+                            android:textColor="#000000"
+                            android:textSize="16dp"
+                            android:textStyle="bold"></TextView>
+                    </LinearLayout>
+
+                    <GridLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp">
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/btn_search_postal_code"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_rowWeight="1"
+                            android:layout_columnWeight="1"
+                            android:paddingLeft="10dp"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_margin="5dp"
+                                android:background="@drawable/data_border_radius"
+                                android:backgroundTint="#234CAF50"
+                                android:focusableInTouchMode="true"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginBottom="5dp"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="KODE POS"
+                                        android:textColor="@color/colorPrimaryDark"
+                                        android:textSize="12dp"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/btn_search_location"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_rowWeight="1"
+                            android:layout_columnWeight="1"
+                            android:paddingLeft="10dp"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_margin="5dp"
+                                android:background="@drawable/data_border_radius"
+                                android:backgroundTint="#234CAF50"
+                                android:focusableInTouchMode="true"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginLeft="10dp"
+                                    android:layout_marginTop="5dp"
+                                    android:layout_marginBottom="5dp"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:text="LOKASI SAAT INI"
+                                        android:textColor="@color/colorPrimaryDark"
+                                        android:textSize="12dp"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+                        </androidx.cardview.widget.CardView>
+                    </GridLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/custom_title_background">
+
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -866,8 +1021,7 @@
                             android:textColor="#000000"
                             android:textSize="16dp"
                             android:textStyle="bold"
-                            android:padding="5dp"
-                            />
+                            android:padding="5dp" />
                     </LinearLayout>
 
                     <!--                <WebView-->
@@ -880,6 +1034,46 @@
                     <!--                    android:background="@drawable/border_radius"-->
                     <!--                    />-->
                 </LinearLayout>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/btn_statistic_indonesia_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_rowWeight="1"
+                    android:layout_columnWeight="1"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:background="@drawable/data_border_radius"
+                        android:backgroundTint="#234CAF50"
+                        android:focusableInTouchMode="true"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="DETAIL STATISTIC"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="12dp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
                 <TextView
                     android:id="@+id/statistic_source_maps"
                     android:layout_width="match_parent"

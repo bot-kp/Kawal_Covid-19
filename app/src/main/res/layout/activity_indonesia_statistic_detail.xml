@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".IndonesiaStatisticDetail">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#4CAF50"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/ic_indo_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:paddingTop="5dp"
+            android:src="@drawable/ic_back"></ImageView>
+
+        <TextView
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="5dp"
+            android:gravity="fill"
+            android:padding="10dp"
+            android:text="Data Persebaran COVID-19 di Indonesia"
+            android:textColor="#FFFFFF"
+            android:textSize="20dp"
+            android:textStyle="bold" /><!--Header-->
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <WebView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </WebView>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

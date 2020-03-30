@@ -81,23 +81,23 @@ public class StatisticDetailAdaptor {
             position = 0;
             holder.subdistrictNameText1.setText(subdistrics.get(position).getName());
             holder.subdistrictPositiveTotalText1.setText(subdistrics.get(position).getPositive());
-            holder.subdistrictODPTotalText1.setText(subdistrics.get(position).getOdp());
             holder.subdistrictPDPTotalText1.setText(subdistrics.get(position).getPdp());
+            holder.subdistrictODPTotalText1.setText(subdistrics.get(position).getOdp());
             position++;
             holder.subdistrictNameText2.setText(subdistrics.get(position).getName());
             holder.subdistrictPositiveTotalText2.setText(subdistrics.get(position).getPositive());
-            holder.subdistrictODPTotalText2.setText(subdistrics.get(position).getOdp());
             holder.subdistrictPDPTotalText2.setText(subdistrics.get(position).getPdp());
+            holder.subdistrictODPTotalText2.setText(subdistrics.get(position).getOdp());
             position++;
             holder.subdistrictNameText3.setText(subdistrics.get(position).getName());
             holder.subdistrictPositiveTotalText3.setText(subdistrics.get(position).getPositive());
-            holder.subdistrictODPTotalText3.setText(subdistrics.get(position).getOdp());
             holder.subdistrictPDPTotalText3.setText(subdistrics.get(position).getPdp());
+            holder.subdistrictODPTotalText3.setText(subdistrics.get(position).getOdp());
             position++;
             holder.subdistrictNameText4.setText(subdistrics.get(position).getName());
             holder.subdistrictPositiveTotalText4.setText(subdistrics.get(position).getPositive());
-            holder.subdistrictODPTotalText4.setText(subdistrics.get(position).getOdp());
             holder.subdistrictPDPTotalText4.setText(subdistrics.get(position).getPdp());
+            holder.subdistrictODPTotalText4.setText(subdistrics.get(position).getOdp());
 
         }
 

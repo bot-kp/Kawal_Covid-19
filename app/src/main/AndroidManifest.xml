@@ -13,6 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".SearchByPostalCode"></activity>
+        <activity android:name=".WebViewStatisticWorld" />
+        <activity android:name=".IndonesiaStatisticDetail" />
         <activity android:name=".DetailNews" />
         <activity
             android:name=".MainActivity"
