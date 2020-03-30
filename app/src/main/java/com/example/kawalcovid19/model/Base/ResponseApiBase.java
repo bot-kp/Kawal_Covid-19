@@ -1,7 +1,5 @@
 package com.example.kawalcovid19.model.Base;
 
-import androidx.annotation.NonNull;
-
 import com.google.gson.annotations.SerializedName;
 
 class ResultStructure<T> {
@@ -22,6 +20,8 @@ public class ResponseApiBase<T> {
     Boolean success;
     @SerializedName("data")
     ResultStructure<T> data;
+    @SerializedName("message")
+    String message = "";
 
     public ResponseApiBase(){}
 
@@ -41,7 +41,16 @@ public class ResponseApiBase<T> {
         return data.getResult();
     }
 
-    public void setData(T data) {
-        this.data.setResult(data);
+    public void setData(ResultStructure<T> data) {
+        this.data = data;
+    }
+
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }
